@@ -88,7 +88,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <span>&copy; 2025 Saffron. All rights reserved.</span>
+        <span>&copy; 2026 Saffron. All rights reserved.</span>
         <span>Designed by whiteWabbit</span>
       </div>
     </footer>
