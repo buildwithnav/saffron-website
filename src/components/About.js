@@ -33,13 +33,13 @@ const About = () => {
         <div className="about__two-col">
           <div className="about__images">
             <img
-              src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80"
-              alt="Rich butter chicken in a dark bowl with aromatic spices"
+              src={`${process.env.PUBLIC_URL}/about-food.jpg`}
+              alt="Saffron dishes being served at the table"
               className="about__img"
             />
             <img
-              src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=800&q=80"
-              alt="Spread of traditional Indian dishes on a table"
+              src={`${process.env.PUBLIC_URL}/about-spices.jpg`}
+              alt="Colorful Indian spices at the market"
               className="about__img"
             />
           </div>
