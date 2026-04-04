@@ -89,7 +89,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="footer-bottom">
         <span>&copy; 2025 Saffron. All rights reserved.</span>
-        <span>Designed with &hearts;</span>
+        <span>Designed by whiteWabbit</span>
       </div>
     </footer>
   );
