@@ -40,7 +40,7 @@ const Location = () => {
               <a href="tel:+16616794271">(661) 679-4271</a>
             </p>
             <p>
-              <a href="mailto:hello@saffronindianfood.com">hello@saffronindianfood.com</a>
+              <a href="mailto:saffronindian60@gmail.com">saffronindian60@gmail.com</a>
             </p>
           </div>
 

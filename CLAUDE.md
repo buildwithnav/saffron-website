@@ -90,15 +90,15 @@ Source PDFs: ~/Downloads/Food-Menu-Saffron.pdf and ~/Downloads/Bar-Menu_Saffron.
 | About photos | Unsplash URLs | About.js |
 | Events photo | Unsplash URL | PrivateEvents.js |
 | Google Map embed | Generic Bakersfield coords | Location.js |
-| Email | hello@saffronindianfood.com (placeholder) | Footer.js, Location.js |
+| ~~Email~~ | ~~saffronindian60@gmail.com~~ (done) | Footer.js, Location.js |
 
 ## TODO / Features to Add
 - [ ] Replace placeholder images with real restaurant photos
 - [ ] Get real Google Maps embed URL
-- [ ] Connect reservation form to a real system (OpenTable, Resy, or email service)
+- [x] Connect reservation form to a real system (Formsubmit.co → saffronindian60@gmail.com)
 - [ ] Add online ordering link (DoorDash/Uber Eats)
 - [ ] Deploy to GitHub Pages
-- [ ] Add real email address
+- [x] Add real email address
 - [ ] SEO: meta tags, Open Graph, JSON-LD Restaurant schema
 - [ ] Favicon
 - [ ] React Router for multi-page

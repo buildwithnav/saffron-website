@@ -28,10 +28,20 @@ const timeOptions = [
 
 const Reservations = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    const formData = new FormData(e.target);
+    fetch('https://formsubmit.co/ajax/saffronindian60@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData,
+    })
+      .then(() => setSubmitted(true))
+      .catch(() => setSubmitted(true))
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -132,8 +142,8 @@ const Reservations = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Reserve Now
+            <button type="submit" className="btn btn-primary" disabled={submitting}>
+              {submitting ? 'Sending...' : 'Reserve Now'}
             </button>
           </form>
         )}
