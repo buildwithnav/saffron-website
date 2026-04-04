@@ -2,6 +2,7 @@
   "name": "saffron-restaurant",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://buildwithnav.github.io/saffron-website",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

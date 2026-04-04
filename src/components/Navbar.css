@@ -1,0 +1,234 @@
+/* ============================================
+   Navbar Styles
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+/* ---- Top Info Bar ---- */
+
+.navbar__topbar {
+  background-color: var(--charcoal);
+  border-bottom: 1px solid rgba(201, 185, 154, 0.1);
+  font-size: 0.8rem;
+  color: var(--cream);
+  padding: 0.4rem 0;
+}
+
+.navbar__topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__topbar-address {
+  color: var(--text-light);
+}
+
+.navbar__topbar-phone a {
+  color: var(--saffron);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar__topbar-phone a:hover {
+  color: var(--saffron-light);
+}
+
+/* ---- Main Nav ---- */
+
+.navbar__main {
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar--scrolled .navbar__main {
+  background-color: var(--deep);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__main-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/* ---- Logo ---- */
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--saffron);
+  transition: color 0.2s ease;
+}
+
+.navbar__logo:hover {
+  color: var(--saffron-light);
+}
+
+/* ---- Nav Links (Desktop) ---- */
+
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar__links a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--saffron);
+  transition: width 0.3s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--saffron);
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+/* ---- CTA Button ---- */
+
+.navbar__cta {
+  font-size: 0.75rem;
+  padding: 0.6rem 1.4rem;
+}
+
+/* ---- Hamburger ---- */
+
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--cream);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar__hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Mobile Menu ---- */
+
+.navbar__mobile {
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--deep);
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.5rem;
+}
+
+.navbar__mobile--open {
+  max-height: 500px;
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(201, 185, 154, 0.1);
+}
+
+.navbar__mobile ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.navbar__mobile a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(201, 185, 154, 0.08);
+  transition: color 0.2s ease;
+}
+
+.navbar__mobile a:hover {
+  color: var(--saffron);
+}
+
+.navbar__mobile-cta {
+  margin-top: 0.75rem;
+  text-align: center;
+  border-bottom: none !important;
+}
+
+/* ============================================
+   Responsive — Mobile (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar__topbar {
+    font-size: 0.7rem;
+    padding: 0.3rem 0;
+  }
+
+  .navbar__topbar-inner {
+    flex-direction: column;
+    gap: 0.15rem;
+    text-align: center;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__logo {
+    font-size: 1.3rem;
+  }
+}
