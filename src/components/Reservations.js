@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Reservations.css';
 
 const timeOptions = [
@@ -27,22 +27,7 @@ const timeOptions = [
 ];
 
 const Reservations = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const formData = new FormData(e.target);
-    fetch('https://formsubmit.co/ajax/saffronindian60@gmail.com', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: formData,
-    })
-      .then(() => setSubmitted(true))
-      .catch(() => setSubmitted(true))
-      .finally(() => setSubmitting(false));
-  };
+  const submitted = new URLSearchParams(window.location.search).get('reserved') === 'true';
 
   return (
     <section id="reservations" className="reservations">
@@ -57,7 +42,10 @@ const Reservations = () => {
             <p>Thank you! We'll confirm your reservation shortly.</p>
           </div>
         ) : (
-          <form className="reservations__form" onSubmit={handleSubmit}>
+          <form className="reservations__form" action="https://formsubmit.co/saffronindian60@gmail.com" method="POST">
+            <input type="hidden" name="_next" value="https://buildwithnav.github.io/saffron-website/?reserved=true#reservations" />
+            <input type="hidden" name="_subject" value="New Reservation Request — Saffron" />
+            <input type="hidden" name="_captcha" value="false" />
             <div className="form-grid">
               <div className="form-group">
                 <label htmlFor="res-name">Name</label>
@@ -142,8 +130,8 @@ const Reservations = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary" disabled={submitting}>
-              {submitting ? 'Sending...' : 'Reserve Now'}
+            <button type="submit" className="btn btn-primary">
+              Reserve Now
             </button>
           </form>
         )}
