@@ -9,13 +9,13 @@ const pillars = [
   },
   {
     icon: '\uD83D\uDCDC',
-    title: 'Traditional Recipes',
-    text: 'Passed down through generations, our recipes honor centuries-old techniques from across the Indian subcontinent.',
+    title: 'Time-Honored Recipes',
+    text: 'Four decades of mastery distilled into every dish — recipes perfected over a lifetime and rooted in tradition.',
   },
   {
     icon: '\uD83E\uDEF6',
     title: 'Warm Hospitality',
-    text: 'From the moment you step in, our team treats every guest like family with attentive, heartfelt service.',
+    text: 'Forty years of welcoming guests like family — Inder and Sukhwinder set the tone for attentive, heartfelt service.',
   },
 ];
 
@@ -26,7 +26,7 @@ const About = () => {
         <div className="about__header">
           <span className="eyebrow">Our Story</span>
           <h2>
-            Crafting <em>Authentic</em> Flavors Since 2018
+            Four Decades of <em>Passion,</em> One Dream
           </h2>
         </div>
 
@@ -46,24 +46,28 @@ const About = () => {
 
           <div className="about__text">
             <p>
-              Saffron was born from a simple belief: that the rich, layered flavors of
-              Indian cuisine deserve to be experienced in their most authentic form.
-              Founded in 2018 by Chef Arjun Mehta, our kitchen is a tribute to the
-              culinary traditions of India — from the smoky tandoors of Punjab to the
-              coconut-laced curries of Kerala.
+              Saffron is the culmination of a lifelong dream. Inder Gill and his wife
+              Sukhwinder Gill have spent over forty years in the restaurant industry,
+              perfecting their craft and building a deep understanding of what makes
+              a dining experience truly memorable. With Saffron, they bring all of that
+              expertise together — a restaurant that is as much a reflection of who
+              they are as the food they serve.
             </p>
             <p>
-              Every dish at Saffron begins with whole spices, freshly ground and
-              tempered to release their full depth. We slow-cook our curries, hand-roll
-              our breads, and craft each plate with the same care you would find in an
-              Indian home kitchen. Our menu evolves with the seasons, but our
-              commitment to tradition never wavers.
+              The vision is rooted in contrast: modern, stylish interiors paired with
+              deeply traditional flavors. Walk in and you will find a space that feels
+              contemporary and inviting — clean lines, warm lighting, a thoughtful
+              atmosphere designed for everything from intimate date nights to lively
+              celebrations. But the kitchen tells a different story — one of
+              whole spices ground fresh, curries slow-cooked for hours, breads
+              hand-rolled and pulled from the tandoor, and recipes that carry the
+              weight of generations.
             </p>
             <p>
-              Step inside and you will find more than a restaurant — you will find a
-              gathering place where stories are shared over fragrant biryanis, where
-              celebrations are marked with sizzling platters, and where every meal is
-              an invitation to savor something truly special.
+              Saffron is not just a restaurant — it is Inder and Sukhwinder's gift to
+              Bakersfield. A place where the warmth of Indian hospitality meets the
+              energy of a modern dining room, where every dish is an invitation to
+              taste four decades of passion on a single plate.
             </p>
           </div>
         </div>
