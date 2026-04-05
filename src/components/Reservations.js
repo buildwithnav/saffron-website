@@ -54,7 +54,7 @@ const Reservations = () => {
                   id="inq-name"
                   name="name"
                   required
-                  placeholder="Your full name"
+                  placeholder="Full Name"
                 />
               </div>
 
@@ -76,7 +76,7 @@ const Reservations = () => {
                   id="inq-phone"
                   name="phone"
                   required
-                  placeholder="(555) 123-4567"
+                  placeholder="(661) 123-4567"
                 />
               </div>
 
@@ -99,9 +99,10 @@ const Reservations = () => {
               <div className="form-group">
                 <label htmlFor="inq-date">Preferred Date</label>
                 <input
-                  type="date"
+                  type="text"
                   id="inq-date"
                   name="date"
+                  placeholder="MM/DD/YYYY"
                 />
               </div>
 
