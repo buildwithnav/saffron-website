@@ -32,7 +32,7 @@ const Reservations = () => {
   return (
     <section id="inquiries" className="reservations">
       <div className="reservations__inner">
-        <span className="eyebrow">Private Events & Catering</span>
+        <span className="eyebrow">Private Events & Parties</span>
         <h2 className="section-title">
           Let Us Make Your <em>Event</em> Special
         </h2>
