@@ -65,7 +65,7 @@ const Reservations = () => {
                   id="inq-email"
                   name="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder="Email Address"
                 />
               </div>
 
