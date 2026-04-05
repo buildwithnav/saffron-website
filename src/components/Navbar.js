@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Menu', href: '#menu' },
   { label: 'Events', href: '#events' },
-  { label: 'Reservations', href: '#reservations' },
+  { label: 'Inquiries', href: '#inquiries' },
   { label: 'Location', href: '#location' },
 ];
 

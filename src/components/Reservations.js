@@ -1,31 +1,6 @@
 import React, { useState } from 'react';
 import './Reservations.css';
 
-const timeOptions = [
-  '11:00 AM',
-  '11:30 AM',
-  '12:00 PM',
-  '12:30 PM',
-  '1:00 PM',
-  '1:30 PM',
-  '2:00 PM',
-  '2:30 PM',
-  '3:00 PM',
-  '3:30 PM',
-  '4:00 PM',
-  '4:30 PM',
-  '5:00 PM',
-  '5:30 PM',
-  '6:00 PM',
-  '6:30 PM',
-  '7:00 PM',
-  '7:30 PM',
-  '8:00 PM',
-  '8:30 PM',
-  '9:00 PM',
-  '9:30 PM',
-];
-
 const Reservations = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -55,28 +30,28 @@ const Reservations = () => {
   };
 
   return (
-    <section id="reservations" className="reservations">
+    <section id="inquiries" className="reservations">
       <div className="reservations__inner">
-        <span className="eyebrow">Reserve a Table</span>
+        <span className="eyebrow">Private Events & Catering</span>
         <h2 className="section-title">
-          Join Us for an <em>Unforgettable</em> Evening
+          Let Us Make Your <em>Event</em> Special
         </h2>
 
         {submitted ? (
           <div className="reservations__success">
-            <p>Thank you! We'll confirm your reservation shortly.</p>
+            <p>Thank you! We'll be in touch soon to discuss your event.</p>
           </div>
         ) : (
           <form className="reservations__form" onSubmit={handleSubmit}>
             <input type="hidden" name="access_key" value="43f3a1d4-3a9c-4fdb-a1ca-39c75d278bd8" />
-            <input type="hidden" name="subject" value="New Reservation Request — Saffron" />
+            <input type="hidden" name="subject" value="New Event Inquiry — Saffron" />
             <input type="hidden" name="from_name" value="Saffron Website" />
             <div className="form-grid">
               <div className="form-group">
-                <label htmlFor="res-name">Name</label>
+                <label htmlFor="inq-name">Name</label>
                 <input
                   type="text"
-                  id="res-name"
+                  id="inq-name"
                   name="name"
                   required
                   placeholder="Your full name"
@@ -84,10 +59,10 @@ const Reservations = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="res-email">Email</label>
+                <label htmlFor="inq-email">Email</label>
                 <input
                   type="email"
-                  id="res-email"
+                  id="inq-email"
                   name="email"
                   required
                   placeholder="you@example.com"
@@ -95,10 +70,10 @@ const Reservations = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="res-phone">Phone</label>
+                <label htmlFor="inq-phone">Phone</label>
                 <input
                   type="tel"
-                  id="res-phone"
+                  id="inq-phone"
                   name="phone"
                   required
                   placeholder="(555) 123-4567"
@@ -106,58 +81,57 @@ const Reservations = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="res-date">Date</label>
-                <input
-                  type="date"
-                  id="res-date"
-                  name="date"
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="res-time">Time</label>
-                <select id="res-time" name="time" required defaultValue="">
+                <label htmlFor="inq-type">Event Type</label>
+                <select id="inq-type" name="eventType" required defaultValue="">
                   <option value="" disabled>
-                    Select a time
+                    Select event type
                   </option>
-                  {timeOptions.map((time) => (
-                    <option key={time} value={time}>
-                      {time}
-                    </option>
-                  ))}
+                  <option value="Catering">Catering</option>
+                  <option value="Birthday Party">Birthday Party</option>
+                  <option value="Corporate Event">Corporate Event</option>
+                  <option value="Wedding / Reception">Wedding / Reception</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Private Dining">Private Dining</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="res-party">Party Size</label>
-                <select id="res-party" name="partySize" required defaultValue="">
+                <label htmlFor="inq-date">Preferred Date</label>
+                <input
+                  type="date"
+                  id="inq-date"
+                  name="date"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="inq-guests">Estimated Guests</label>
+                <select id="inq-guests" name="estimatedGuests" defaultValue="">
                   <option value="" disabled>
                     Number of guests
                   </option>
-                  {[...Array(9)].map((_, i) => (
-                    <option key={i + 1} value={i + 1}>
-                      {i + 1}
-                    </option>
-                  ))}
-                  <option value="10+">10+</option>
+                  <option value="10-25">10 - 25</option>
+                  <option value="25-50">25 - 50</option>
+                  <option value="50-100">50 - 100</option>
+                  <option value="100+">100+</option>
                 </select>
               </div>
             </div>
 
             <div className="form-group form-group--full">
-              <label htmlFor="res-requests">Special Requests</label>
+              <label htmlFor="inq-details">Tell Us About Your Event</label>
               <textarea
-                id="res-requests"
-                name="specialRequests"
+                id="inq-details"
+                name="eventDetails"
                 rows="4"
-                placeholder="Allergies, celebrations, seating preferences..."
+                placeholder="What's the occasion? Any specific menu preferences, dietary needs, or other details..."
               />
             </div>
 
             {error && <p style={{ color: '#e74c3c', marginBottom: '1rem' }}>{error}</p>}
             <button type="submit" className="btn btn-primary" disabled={submitting}>
-              {submitting ? 'Sending...' : 'Reserve Now'}
+              {submitting ? 'Sending...' : 'Send Inquiry'}
             </button>
           </form>
         )}
