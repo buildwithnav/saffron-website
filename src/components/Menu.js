@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Menu.css';
 
 const menuData = {
@@ -456,6 +456,12 @@ const tagLabels = {
 
 function Menu() {
   const [activeTab, setActiveTab] = useState('Appetizers');
+
+  useEffect(() => {
+    const handler = (e) => setActiveTab(e.detail);
+    window.addEventListener('select-menu-tab', handler);
+    return () => window.removeEventListener('select-menu-tab', handler);
+  }, []);
 
   const { subcategories } = menuData[activeTab];
 

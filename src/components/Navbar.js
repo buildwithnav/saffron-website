@@ -5,6 +5,7 @@ const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Menu', href: '#menu' },
+  { label: 'Party Trays', href: '#menu', action: 'party-trays' },
   { label: 'Events', href: '#events' },
   { label: 'Inquiries', href: '#inquiries' },
   { label: 'Location', href: '#location' },
@@ -20,10 +21,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, link) => {
     e.preventDefault();
     setMenuOpen(false);
-    const target = document.querySelector(href);
+    if (link.action === 'party-trays') {
+      window.dispatchEvent(new CustomEvent('select-menu-tab', { detail: 'Party Trays' }));
+    }
+    const target = document.querySelector(link.href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
@@ -46,22 +50,22 @@ export default function Navbar() {
       {/* Main Navigation */}
       <nav className="navbar__main">
         <div className="container navbar__main-inner">
-          <a href="#home" className="navbar__logo" onClick={(e) => handleNavClick(e, '#home')}>
+          <a href="#home" className="navbar__logo" onClick={(e) => handleNavClick(e, { href: '#home' })}>
             SAFFRON
           </a>
 
           {/* Desktop Links */}
           <ul className="navbar__links">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} onClick={(e) => handleNavClick(e, link.href)}>
+              <li key={link.label}>
+                <a href={link.href} onClick={(e) => handleNavClick(e, link)}>
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <a href="#order" className="btn-primary navbar__cta" onClick={(e) => handleNavClick(e, '#order')}>
+          <a href="#order" className="btn-primary navbar__cta" onClick={(e) => handleNavClick(e, { href: '#order' })}>
             Order Online
           </a>
 
@@ -82,14 +86,14 @@ export default function Navbar() {
         <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
           <ul>
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} onClick={(e) => handleNavClick(e, link.href)}>
+              <li key={link.label}>
+                <a href={link.href} onClick={(e) => handleNavClick(e, link)}>
                   {link.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href="#order" className="btn-primary navbar__mobile-cta" onClick={(e) => handleNavClick(e, '#order')}>
+              <a href="#order" className="btn-primary navbar__mobile-cta" onClick={(e) => handleNavClick(e, { href: '#order' })}>
                 Order Online
               </a>
             </li>
