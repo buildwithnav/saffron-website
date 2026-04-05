@@ -196,6 +196,39 @@
   background: #b8382a;
 }
 
+/* ---- Party Tray Info ---- */
+
+.menu-tray-info {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 24px 32px;
+  border: 1px solid rgba(244, 168, 41, 0.25);
+  border-radius: 2px;
+  background: rgba(244, 168, 41, 0.05);
+}
+
+.menu-tray-info p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--cream);
+  margin: 4px 0;
+}
+
+.menu-tray-info strong {
+  color: var(--saffron);
+}
+
+.menu-tray-note {
+  margin-top: 12px !important;
+  font-size: 0.9rem !important;
+  color: var(--text-light) !important;
+}
+
+.menu-tray-note a {
+  color: var(--saffron);
+  text-decoration: underline;
+}
+
 /* ---- Legend ---- */
 
 .menu-legend {
