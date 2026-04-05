@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Reservations.css';
 
 const timeOptions = [
@@ -27,7 +27,32 @@ const timeOptions = [
 ];
 
 const Reservations = () => {
-  const submitted = new URLSearchParams(window.location.search).get('reserved') === 'true';
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError('');
+    const formData = new FormData(e.target);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setSubmitted(true);
+        } else {
+          setError('Something went wrong. Please call us at (661) 679-4271.');
+        }
+      })
+      .catch(() => {
+        setError('Something went wrong. Please call us at (661) 679-4271.');
+      })
+      .finally(() => setSubmitting(false));
+  };
 
   return (
     <section id="reservations" className="reservations">
@@ -42,10 +67,10 @@ const Reservations = () => {
             <p>Thank you! We'll confirm your reservation shortly.</p>
           </div>
         ) : (
-          <form className="reservations__form" action="https://formsubmit.co/saffronindian60@gmail.com" method="POST">
-            <input type="hidden" name="_next" value="https://buildwithnav.github.io/saffron-website/?reserved=true#reservations" />
-            <input type="hidden" name="_subject" value="New Reservation Request — Saffron" />
-            <input type="hidden" name="_captcha" value="false" />
+          <form className="reservations__form" onSubmit={handleSubmit}>
+            <input type="hidden" name="access_key" value="43f3a1d4-3a9c-4fdb-a1ca-39c75d278bd8" />
+            <input type="hidden" name="subject" value="New Reservation Request — Saffron" />
+            <input type="hidden" name="from_name" value="Saffron Website" />
             <div className="form-grid">
               <div className="form-group">
                 <label htmlFor="res-name">Name</label>
@@ -130,8 +155,9 @@ const Reservations = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Reserve Now
+            {error && <p style={{ color: '#e74c3c', marginBottom: '1rem' }}>{error}</p>}
+            <button type="submit" className="btn btn-primary" disabled={submitting}>
+              {submitting ? 'Sending...' : 'Reserve Now'}
             </button>
           </form>
         )}
