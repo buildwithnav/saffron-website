@@ -14,17 +14,18 @@ const PrivateEvents = () => {
       <div className="events__overlay" />
 
       <div className="events__content">
-        <span className="eyebrow">Private Events</span>
-        <h2 className="section-title">
+        <span className="eyebrow reveal">Private Events</span>
+        <h2 className="section-title reveal d1">
           Celebrate Your <em>Special</em> Moments
         </h2>
-        <p className="events__text">
+        <div className="gold-divider reveal d2"><span className="dot"></span></div>
+        <p className="events__text reveal d3">
           From intimate gatherings to grand celebrations, Saffron offers an
           exquisite setting for your most memorable occasions. Our dedicated
           events team will craft a bespoke dining experience with curated menus,
           personalized decor, and impeccable service.
         </p>
-        <a href="#reservations" className="btn btn-primary">
+        <a href="#inquiries" className="btn btn-primary reveal d4">
           Inquire Now
         </a>
       </div>

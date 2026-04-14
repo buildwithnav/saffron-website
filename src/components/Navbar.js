@@ -65,7 +65,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <a href="#order" className="btn-primary navbar__cta" onClick={(e) => handleNavClick(e, { href: '#order' })}>
+          <a href="https://www.doordash.com/store/saffron-indian-food-&-bar-bakersfield-41931145/" target="_blank" rel="noopener noreferrer" className="btn-primary navbar__cta">
             Order Online
           </a>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <a href="#order" className="btn-primary navbar__mobile-cta" onClick={(e) => handleNavClick(e, { href: '#order' })}>
+              <a href="https://www.doordash.com/store/saffron-indian-food-&-bar-bakersfield-41931145/" target="_blank" rel="noopener noreferrer" className="btn-primary navbar__mobile-cta">
                 Order Online
               </a>
             </li>

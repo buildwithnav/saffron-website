@@ -48,20 +48,14 @@ const Hero = () => {
         <h1 className="hero__title">SAFFRON</h1>
         <p className="hero__tagline">Indian Food & Bar — Bakersfield, CA</p>
         <div className="hero__cta">
-          <a href="#reserve" className="btn btn-primary">Reserve a Table</a>
+          <a href="#inquiries" className="btn btn-primary">Reserve a Table</a>
           <a href="#menu" className="btn btn-ghost">Explore Menu</a>
         </div>
       </div>
 
-      <div className="hero__dots">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`hero__dot ${index === currentSlide ? 'hero__dot--active' : ''}`}
-            onClick={() => setCurrentSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      <div className="hero__scroll-indicator">
+        <span>Scroll</span>
+        <div className="hero__scroll-line"></div>
       </div>
     </section>
   );

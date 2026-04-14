@@ -32,10 +32,11 @@ const Reservations = () => {
   return (
     <section id="inquiries" className="reservations">
       <div className="reservations__inner">
-        <span className="eyebrow">Private Events & Parties</span>
-        <h2 className="section-title">
+        <span className="eyebrow reveal">Private Events & Parties</span>
+        <h2 className="section-title reveal d1">
           Let Us Make Your <em>Event</em> Special
         </h2>
+        <div className="gold-divider reveal d2"><span className="dot"></span></div>
 
         {submitted ? (
           <div className="reservations__success">

@@ -26,7 +26,7 @@ const Footer = () => {
               <a href="https://instagram.com/saffronindiacuisine" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 &#9673; Instagram
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/groups/207692043666388/posts/1563885504713695/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 &#9673; Facebook
               </a>
               <a href="https://www.yelp.com/biz/saffron-indian-food-and-bar-bakersfield" target="_blank" rel="noopener noreferrer" aria-label="Yelp">

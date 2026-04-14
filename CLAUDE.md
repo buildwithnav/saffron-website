@@ -92,24 +92,47 @@ Source PDFs: ~/Downloads/Food-Menu-Saffron.pdf and ~/Downloads/Bar-Menu_Saffron.
 | Google Map embed | Generic Bakersfield coords | Location.js |
 | ~~Email~~ | ~~saffronindian60@gmail.com~~ (done) | Footer.js, Location.js |
 
-## TODO / Features to Add
+## Audit Findings (2026-04-12)
+### Critical Fixes Needed
+- [ ] Broken nav links — "Order Online" → #order (doesn't exist), "Reserve a Table" → #reserve (doesn't exist)
+- [ ] Google Maps — placeholder coordinates (0x0), not actual restaurant
+- [ ] Party Trays tab — dispatches event nobody listens to
+- [ ] Facebook link — goes to facebook.com, not Saffron's page (Footer.js line 29)
+- [ ] Newsletter form — uses alert(), no backend (Footer.js line 10)
+- [ ] Web3Forms API key exposed in client code (Reservations.js line 46)
+
+### Design Upgrades Planned
+- [ ] Full redesign pass using awesome-design-md skills (57 design systems available)
+- [ ] Scroll animations (fade-in sections)
+- [ ] Reviews/testimonials section (5-star Google & Yelp ratings)
+- [ ] Online ordering buttons (DoorDash / Uber Eats)
+- [ ] Better form UX — date picker, phone validation
+- [ ] SEO — JSON-LD Restaurant schema, Open Graph tags
+- [ ] Replace all Unsplash placeholder images with real photos
+
+### Existing TODOs
 - [ ] Replace placeholder images with real restaurant photos
 - [ ] Get real Google Maps embed URL
-- [x] Connect reservation form to a real system (Formsubmit.co → saffronindian60@gmail.com)
+- [x] Connect reservation form to a real system (Web3Forms → saffronindian60@gmail.com)
 - [ ] Add online ordering link (DoorDash/Uber Eats)
-- [ ] Deploy to GitHub Pages
+- [x] Deploy to GitHub Pages
 - [x] Add real email address
 - [ ] SEO: meta tags, Open Graph, JSON-LD Restaurant schema
 - [ ] Favicon
-- [ ] React Router for multi-page
 - [ ] Gallery / Instagram feed section
 - [ ] Scroll animations (Framer Motion or Intersection Observer)
 - [ ] Mobile performance (lazy load images)
 - [ ] Analytics
 
+### Future Features (from Nav's vision)
+- [ ] Customer ordering system
+- [ ] Payment processing
+- [ ] Order ticket via iMessage
+- [ ] Order logging system
+
 ## How to Run
 ```bash
-cd ~/Documents/saffron-website/saffron-restaurant
+cd ~/Documents/loot/saffron-website
 npm start
 # Opens at http://localhost:3000
 ```

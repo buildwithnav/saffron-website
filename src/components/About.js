@@ -23,15 +23,16 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="about__container">
-        <div className="about__header">
+        <div className="about__header reveal">
           <span className="eyebrow">Our Story</span>
           <h2>
             Four Decades of <em>Passion,</em> One Dream
           </h2>
+          <div className="gold-divider"><span className="dot"></span></div>
         </div>
 
         <div className="about__two-col">
-          <div className="about__images">
+          <div className="about__images reveal-left">
             <img
               src={`${process.env.PUBLIC_URL}/about-food.jpg`}
               alt="Saffron dishes being served at the table"
@@ -44,7 +45,7 @@ const About = () => {
             />
           </div>
 
-          <div className="about__text">
+          <div className="about__text reveal-right">
             <p>
               Saffron is the culmination of a lifelong dream. Inder Gill and his wife
               Sukhwinder Gill have spent over forty years in the restaurant industry,
@@ -74,7 +75,7 @@ const About = () => {
 
         <div className="about__pillars">
           {pillars.map((pillar, index) => (
-            <div key={index} className="pillar">
+            <div key={index} className={`pillar reveal d${index + 1}`}>
               <span className="pillar__icon">{pillar.icon}</span>
               <h3 className="pillar__title">{pillar.title}</h3>
               <p className="pillar__text">{pillar.text}</p>
