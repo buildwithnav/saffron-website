@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Location.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Location = () => {
+  const sectionRef = useRef(null);
+  const hoursRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* Hours list stagger reveal */
+      if (hoursRef.current) {
+        const rows = hoursRef.current.querySelectorAll('li');
+        gsap.fromTo(
+          rows,
+          { opacity: 0, x: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: hoursRef.current,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="location" className="location">
+    <section id="location" className="location" ref={sectionRef}>
       <div className="location__header reveal">
         <span className="eyebrow">Find Us</span>
         <h2 className="section-title">
@@ -47,7 +81,7 @@ const Location = () => {
 
           <div className="location__block">
             <h3>Hours</h3>
-            <ul className="location__hours">
+            <ul className="location__hours" ref={hoursRef}>
               <li>
                 <span>Mon &ndash; Thu</span>
                 <span>11:00 AM &ndash; 9:00 PM</span>

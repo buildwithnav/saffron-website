@@ -1,9 +1,24 @@
 /* ===== Footer ===== */
 .footer {
   background-color: var(--deep);
-  border-top: 1px solid var(--saffron);
   color: var(--text-light);
   font-family: var(--font-body);
+  position: relative;
+}
+
+/* Animated gold shimmer divider replacing static border-top */
+.footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--saffron), var(--saffron-light), var(--saffron), transparent);
+  background-size: 200% 100%;
+  animation: shimmerLine 3s ease-in-out infinite;
+}
+
+@keyframes shimmerLine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .footer-main {
@@ -132,7 +147,7 @@
   font-family: var(--font-body);
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footer-newsletter-input::placeholder {
@@ -141,6 +156,7 @@
 
 .footer-newsletter-input:focus {
   border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(244, 168, 41, 0.15), 0 0 12px rgba(244, 168, 41, 0.1);
 }
 
 .footer-newsletter-form .btn-primary {

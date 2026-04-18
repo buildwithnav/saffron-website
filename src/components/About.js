@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
   {
@@ -20,8 +24,81 @@ const pillars = [
 ];
 
 const About = () => {
+  const sectionRef = useRef(null);
+  const imagesRef = useRef([]);
+  const textRef = useRef(null);
+  const pillarsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* Image clip-path reveal: left to right */
+      imagesRef.current.forEach((img) => {
+        if (!img) return;
+        gsap.fromTo(
+          img,
+          { clipPath: 'inset(0 100% 0 0)' },
+          {
+            clipPath: 'inset(0 0% 0 0)',
+            duration: 1.2,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      /* Text line-by-line reveal */
+      if (textRef.current) {
+        const paragraphs = textRef.current.querySelectorAll('p');
+        paragraphs.forEach((p) => {
+          gsap.fromTo(
+            p,
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: p,
+                start: 'top 90%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        });
+      }
+
+      /* Pillar cards stagger reveal */
+      const validPillars = pillarsRef.current.filter(Boolean);
+      if (validPillars.length > 0) {
+        gsap.fromTo(
+          validPillars,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: validPillars[0],
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="about" className="about">
+    <section id="about" className="about" ref={sectionRef}>
       <div className="about__container">
         <div className="about__header reveal">
           <span className="eyebrow">Our Story</span>
@@ -34,18 +111,20 @@ const About = () => {
         <div className="about__two-col">
           <div className="about__images reveal-left">
             <img
+              ref={(el) => { imagesRef.current[0] = el; }}
               src={`${process.env.PUBLIC_URL}/about-food.jpg`}
               alt="Saffron dishes being served at the table"
               className="about__img"
             />
             <img
+              ref={(el) => { imagesRef.current[1] = el; }}
               src={`${process.env.PUBLIC_URL}/about-spices.jpg`}
               alt="Colorful Indian spices at the market"
               className="about__img"
             />
           </div>
 
-          <div className="about__text reveal-right">
+          <div className="about__text reveal-right" ref={textRef}>
             <p>
               Saffron is the culmination of a lifelong dream. Inder Gill and his wife
               Sukhwinder Gill have spent over forty years in the restaurant industry,
@@ -75,7 +154,11 @@ const About = () => {
 
         <div className="about__pillars">
           {pillars.map((pillar, index) => (
-            <div key={index} className={`pillar reveal d${index + 1}`}>
+            <div
+              key={index}
+              className={`pillar reveal d${index + 1}`}
+              ref={(el) => { pillarsRef.current[index] = el; }}
+            >
               <span className="pillar__icon">{pillar.icon}</span>
               <h3 className="pillar__title">{pillar.title}</h3>
               <p className="pillar__text">{pillar.text}</p>

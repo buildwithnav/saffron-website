@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Navbar.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -11,14 +15,76 @@ const NAV_LINKS = [
   { label: 'Location', href: '#location' },
 ];
 
+const SECTION_IDS = ['home', 'about', 'menu', 'events', 'inquiries', 'location'];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const navbarRef = useRef(null);
+  const topbarRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Entrance animation — slide navbar in from top
+      gsap.from(navbarRef.current, {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.2,
+      });
+
+      // Hide topbar on scroll past 200px
+      ScrollTrigger.create({
+        start: 200,
+        onUpdate: (self) => {
+          if (!topbarRef.current) return;
+          if (self.direction === 1 && self.scroll() > 200) {
+            gsap.to(topbarRef.current, {
+              y: -topbarRef.current.offsetHeight,
+              opacity: 0,
+              duration: 0.4,
+              ease: 'power2.inOut',
+              overwrite: true,
+            });
+          } else if (self.direction === -1 && self.scroll() <= 200) {
+            gsap.to(topbarRef.current, {
+              y: 0,
+              opacity: 1,
+              duration: 0.4,
+              ease: 'power2.inOut',
+              overwrite: true,
+            });
+          }
+        },
+      });
+
+      // Active section highlighting via ScrollTrigger
+      SECTION_IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 40%',
+          end: 'bottom 40%',
+          onToggle: (self) => {
+            if (self.isActive) {
+              setActiveSection(id);
+            }
+          },
+        });
+      });
+    }, navbarRef);
+
+    return () => ctx.revert();
   }, []);
 
   const handleNavClick = (e, link) => {
@@ -33,10 +99,21 @@ export default function Navbar() {
     }
   };
 
+  /**
+   * Determine whether a nav link matches the currently active section.
+   * Special case: "Party Trays" shares href #menu with the Menu link,
+   * so only highlight the primary "Menu" link for the menu section.
+   */
+  const isLinkActive = (link) => {
+    const sectionId = link.href.replace('#', '');
+    if (link.action === 'party-trays') return false;
+    return sectionId === activeSection;
+  };
+
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <header ref={navbarRef} className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       {/* Top Info Bar */}
-      <div className="navbar__topbar">
+      <div ref={topbarRef} className="navbar__topbar">
         <div className="container navbar__topbar-inner">
           <span className="navbar__topbar-address">
             3015 Calloway Dr, Unit D2 & D3, Bakersfield, CA 93312
@@ -58,7 +135,11 @@ export default function Navbar() {
           <ul className="navbar__links">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} onClick={(e) => handleNavClick(e, link)}>
+                <a
+                  href={link.href}
+                  className={isLinkActive(link) ? 'navbar__link--active' : ''}
+                  onClick={(e) => handleNavClick(e, link)}
+                >
                   {link.label}
                 </a>
               </li>
@@ -87,7 +168,11 @@ export default function Navbar() {
           <ul>
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <a href={link.href} onClick={(e) => handleNavClick(e, link)}>
+                <a
+                  href={link.href}
+                  className={isLinkActive(link) ? 'navbar__link--active' : ''}
+                  onClick={(e) => handleNavClick(e, link)}
+                >
                   {link.label}
                 </a>
               </li>

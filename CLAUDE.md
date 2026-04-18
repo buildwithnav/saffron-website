@@ -93,22 +93,31 @@ Source PDFs: ~/Downloads/Food-Menu-Saffron.pdf and ~/Downloads/Bar-Menu_Saffron.
 | ~~Email~~ | ~~saffronindian60@gmail.com~~ (done) | Footer.js, Location.js |
 
 ## Audit Findings (2026-04-12)
-### Critical Fixes Needed
-- [ ] Broken nav links — "Order Online" → #order (doesn't exist), "Reserve a Table" → #reserve (doesn't exist)
-- [ ] Google Maps — placeholder coordinates (0x0), not actual restaurant
-- [ ] Party Trays tab — dispatches event nobody listens to
-- [ ] Facebook link — goes to facebook.com, not Saffron's page (Footer.js line 29)
-- [ ] Newsletter form — uses alert(), no backend (Footer.js line 10)
+### Critical Fixes — DONE (2026-04-13)
+- [x] Broken nav links — "Reserve a Table" → #inquiries, "Order Online" → DoorDash
+- [x] Google Maps — coordinates updated
+- [x] Facebook link — updated to actual Saffron page
+- [x] "Inquire Now" in Events — fixed to #inquiries
+- [ ] Party Trays tab — still dispatches event nobody listens to
+- [ ] Newsletter form — still uses alert(), no backend (Footer.js line 10)
 - [ ] Web3Forms API key exposed in client code (Reservations.js line 46)
 
-### Design Upgrades Planned
-- [ ] Full redesign pass using awesome-design-md skills (57 design systems available)
-- [ ] Scroll animations (fade-in sections)
+### Design Upgrades — DONE (2026-04-13)
+- [x] Scroll reveal animations (Intersection Observer — fade-up, slide-left/right, scale)
+- [x] Hero: Ken Burns zoom, staggered entrance animations, scroll indicator
+- [x] About: slide-in animations, pillar card hover effects, image hover zoom
+- [x] Gold dividers across all sections
+- [x] PrivateEvents/Reservations/Location: reveal animations
+- [x] Online ordering — Order Online now links to DoorDash
+
+### Still TODO
 - [ ] Reviews/testimonials section (5-star Google & Yelp ratings)
-- [ ] Online ordering buttons (DoorDash / Uber Eats)
 - [ ] Better form UX — date picker, phone validation
 - [ ] SEO — JSON-LD Restaurant schema, Open Graph tags
-- [ ] Replace all Unsplash placeholder images with real photos
+- [ ] Replace all Unsplash placeholder images with real photos (Nav will provide)
+- [ ] Fix Party Trays tab
+- [ ] Newsletter backend
+- [ ] Move API key to env variable
 
 ### Existing TODOs
 - [ ] Replace placeholder images with real restaurant photos

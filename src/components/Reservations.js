@@ -1,10 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Reservations.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Reservations = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const sectionRef = useRef(null);
+  const successRef = useRef(null);
+
+  useEffect(() => {
+    if (!submitted || !successRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        successRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: 'back.out(1.4)',
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [submitted]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +55,7 @@ const Reservations = () => {
   };
 
   return (
-    <section id="inquiries" className="reservations">
+    <section id="inquiries" className="reservations" ref={sectionRef}>
       <div className="reservations__inner">
         <span className="eyebrow reveal">Private Events & Parties</span>
         <h2 className="section-title reveal d1">
@@ -39,7 +64,8 @@ const Reservations = () => {
         <div className="gold-divider reveal d2"><span className="dot"></span></div>
 
         {submitted ? (
-          <div className="reservations__success">
+          <div className="reservations__success" ref={successRef}>
+            <span className="reservations__check-icon" aria-hidden="true">&#10003;</span>
             <p>Thank you! We'll be in touch soon to discuss your event.</p>
           </div>
         ) : (
@@ -49,39 +75,39 @@ const Reservations = () => {
             <input type="hidden" name="from_name" value="Saffron Website" />
             <div className="form-grid">
               <div className="form-group">
-                <label htmlFor="inq-name">Name</label>
                 <input
                   type="text"
                   id="inq-name"
                   name="name"
                   required
-                  placeholder="Full Name"
+                  placeholder=" "
                 />
+                <label htmlFor="inq-name">Name</label>
               </div>
 
               <div className="form-group">
-                <label htmlFor="inq-email">Email</label>
                 <input
                   type="email"
                   id="inq-email"
                   name="email"
                   required
-                  placeholder="Email Address"
+                  placeholder=" "
                 />
+                <label htmlFor="inq-email">Email</label>
               </div>
 
               <div className="form-group">
-                <label htmlFor="inq-phone">Phone</label>
                 <input
                   type="tel"
                   id="inq-phone"
                   name="phone"
                   required
-                  placeholder="(661) 123-4567"
+                  placeholder=" "
                 />
+                <label htmlFor="inq-phone">Phone</label>
               </div>
 
-              <div className="form-group">
+              <div className="form-group form-group--select">
                 <label htmlFor="inq-type">Event Type</label>
                 <select id="inq-type" name="eventType" required defaultValue="">
                   <option value="" disabled>
@@ -98,16 +124,16 @@ const Reservations = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="inq-date">Preferred Date</label>
                 <input
                   type="text"
                   id="inq-date"
                   name="date"
-                  placeholder="MM/DD/YYYY"
+                  placeholder=" "
                 />
+                <label htmlFor="inq-date">Preferred Date (MM/DD/YYYY)</label>
               </div>
 
-              <div className="form-group">
+              <div className="form-group form-group--select">
                 <label htmlFor="inq-guests">Estimated Guests</label>
                 <select id="inq-guests" name="estimatedGuests" defaultValue="">
                   <option value="" disabled>
@@ -121,18 +147,18 @@ const Reservations = () => {
               </div>
             </div>
 
-            <div className="form-group form-group--full">
-              <label htmlFor="inq-details">Tell Us About Your Event</label>
+            <div className="form-group form-group--full form-group--textarea">
               <textarea
                 id="inq-details"
                 name="eventDetails"
                 rows="4"
-                placeholder="What's the occasion? Any specific menu preferences, dietary needs, or other details..."
+                placeholder=" "
               />
+              <label htmlFor="inq-details">Tell Us About Your Event</label>
             </div>
 
             {error && <p style={{ color: '#e74c3c', marginBottom: '1rem' }}>{error}</p>}
-            <button type="submit" className="btn btn-primary" disabled={submitting}>
+            <button type="submit" className="btn btn-primary reservations__submit" disabled={submitting}>
               {submitting ? 'Sending...' : 'Send Inquiry'}
             </button>
           </form>

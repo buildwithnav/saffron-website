@@ -1,4 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,27 +11,101 @@ import Reservations from './components/Reservations';
 import Location from './components/Location';
 import Footer from './components/Footer';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  const appRef = useRef(null);
+  const progressRef = useRef(null);
+
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
-    if (!els.length) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+    const ctx = gsap.context(() => {
+      /* ---- scroll progress bar ---- */
+      gsap.to(progressRef.current, {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3,
+        },
+      });
+
+      /* ---- fade-up reveals ---- */
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        gsap.fromTo(el,
+          { y: 40, opacity: 0 },
+          {
+            y: 0, opacity: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
           }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+        );
+      });
+
+      /* ---- slide-left reveals ---- */
+      gsap.utils.toArray('.reveal-left').forEach((el) => {
+        gsap.fromTo(el,
+          { x: -50, opacity: 0 },
+          {
+            x: 0, opacity: 1,
+            duration: 0.9,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      /* ---- slide-right reveals ---- */
+      gsap.utils.toArray('.reveal-right').forEach((el) => {
+        gsap.fromTo(el,
+          { x: 50, opacity: 0 },
+          {
+            x: 0, opacity: 1,
+            duration: 0.9,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      /* ---- scale reveals ---- */
+      gsap.utils.toArray('.reveal-scale').forEach((el) => {
+        gsap.fromTo(el,
+          { scale: 0.92, opacity: 0 },
+          {
+            scale: 1, opacity: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    }, appRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
+      <div className="scroll-progress" ref={progressRef} />
       <Navbar />
       <Hero />
       <About />

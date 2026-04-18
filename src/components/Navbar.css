@@ -19,6 +19,7 @@
   font-size: 0.8rem;
   color: var(--cream);
   padding: 0.4rem 0;
+  will-change: transform, opacity;
 }
 
 .navbar__topbar-inner {
@@ -45,12 +46,22 @@
 
 .navbar__main {
   background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.4s ease,
+    backdrop-filter 0.4s ease,
+    -webkit-backdrop-filter 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
 }
 
+/* Glassmorphism on scroll */
 .navbar--scrolled .navbar__main {
-  background-color: var(--deep);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  background: rgba(14, 6, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(244, 168, 41, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .navbar__main-inner {
@@ -69,11 +80,17 @@
   font-weight: 400;
   letter-spacing: 0.25em;
   color: var(--saffron);
-  transition: color 0.2s ease;
+  text-shadow: 0 0 20px rgba(244, 168, 41, 0);
+  transition: color 0.2s ease, text-shadow 0.4s ease;
 }
 
 .navbar__logo:hover {
   color: var(--saffron-light);
+}
+
+/* Gold glow pulse on scroll */
+.navbar--scrolled .navbar__logo {
+  text-shadow: 0 0 20px rgba(244, 168, 41, 0.3);
 }
 
 /* ---- Nav Links (Desktop) ---- */
@@ -91,7 +108,7 @@
   text-transform: uppercase;
   color: var(--text-light);
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.3s ease;
 }
 
 .navbar__links a::after {
@@ -105,12 +122,24 @@
   transition: width 0.3s ease;
 }
 
+/* Hover — gold glow + underline */
 .navbar__links a:hover {
   color: var(--saffron);
+  text-shadow: 0 0 8px rgba(244, 168, 41, 0.3);
 }
 
 .navbar__links a:hover::after {
   width: 100%;
+}
+
+/* Active section — persistent gold underline */
+.navbar__links a.navbar__link--active {
+  color: var(--saffron);
+}
+
+.navbar__links a.navbar__link--active::after {
+  width: 100%;
+  background-color: var(--saffron);
 }
 
 /* ---- CTA Button ---- */
@@ -191,6 +220,11 @@
 }
 
 .navbar__mobile a:hover {
+  color: var(--saffron);
+}
+
+/* Active section — mobile highlight */
+.navbar__mobile a.navbar__link--active {
   color: var(--saffron);
 }
 

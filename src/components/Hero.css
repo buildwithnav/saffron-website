@@ -40,11 +40,8 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(14, 6, 0, 0.7),
-    rgba(14, 6, 0, 0.5)
-  );
+  background: rgba(14, 6, 0, 1);
+  opacity: 0.7;
   z-index: 1;
 }
 
@@ -65,8 +62,11 @@
   color: var(--saffron);
   margin: 0 0 1rem;
   line-height: 1;
-  opacity: 0;
-  animation: heroFadeUp 1.2s 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.hero__letter {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 .hero__tagline {
@@ -76,8 +76,7 @@
   letter-spacing: 1px;
   margin: 0 0 2.5rem;
   font-weight: 300;
-  opacity: 0;
-  animation: heroFadeUp 1.2s 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  will-change: transform, opacity, filter;
 }
 
 /* CTA Buttons */
@@ -86,13 +85,6 @@
   gap: 1.25rem;
   justify-content: center;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: heroFadeUp 1.2s 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Scroll indicator */
@@ -106,8 +98,6 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  opacity: 0;
-  animation: heroFadeUp 1s 1.5s forwards;
 }
 
 .hero__scroll-indicator span {
@@ -128,6 +118,41 @@
 @keyframes scrollPulse {
   0%, 100% { height: 40px; opacity: 0.5; }
   50% { height: 52px; opacity: 1; }
+}
+
+/* Floating gold particles */
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--saffron) 0%, rgba(244, 168, 41, 0) 70%);
+  opacity: 0;
+  animation: particleFloat 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.4);
+    opacity: 0;
+  }
 }
 
 .btn {

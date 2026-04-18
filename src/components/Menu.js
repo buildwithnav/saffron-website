@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
+import gsap from 'gsap';
 import './Menu.css';
 
 const menuData = {
@@ -456,78 +457,208 @@ const tagLabels = {
 
 function Menu() {
   const [activeTab, setActiveTab] = useState('Appetizers');
+  const menuGridRef = useRef(null);
+  const tabsRef = useRef(null);
+  const indicatorRef = useRef(null);
+  const gsapCtxRef = useRef(null);
+  const isAnimatingRef = useRef(false);
+
+  // Event listener for external tab selection — moved after handleTabChange definition below
+
+  /* ---- Sliding tab indicator ---- */
+  const updateIndicator = useCallback((tabName) => {
+    if (!tabsRef.current || !indicatorRef.current) return;
+    const activeBtn = tabsRef.current.querySelector(`.menu-tab.active`);
+    if (!activeBtn) return;
+
+    const tabsRect = tabsRef.current.getBoundingClientRect();
+    const btnRect = activeBtn.getBoundingClientRect();
+
+    gsap.to(indicatorRef.current, {
+      x: btnRect.left - tabsRect.left,
+      width: btnRect.width,
+      duration: 0.4,
+      ease: 'power3.out',
+    });
+  }, []);
+
+  /* ---- Initial indicator position ---- */
+  useLayoutEffect(() => {
+    requestAnimationFrame(() => updateIndicator(activeTab));
+  }, [activeTab, updateIndicator]);
+
+  /* ---- Price count-up effect ---- */
+  const animatePrices = useCallback((container) => {
+    if (!container) return;
+    const priceEls = container.querySelectorAll('.menu-item-price');
+    priceEls.forEach((el) => {
+      const text = el.textContent;
+      const match = text.match(/\$(\d+)/);
+      if (!match) return;
+      const target = parseInt(match[1], 10);
+      const proxy = { val: 0 };
+      gsap.to(proxy, {
+        val: target,
+        duration: 0.3,
+        ease: 'power2.out',
+        onUpdate() {
+          el.textContent = `$${Math.round(proxy.val)}`;
+        },
+      });
+    });
+  }, []);
+
+  /* ---- Track activeTab in a ref for stable callbacks ---- */
+  const activeTabRef = useRef(activeTab);
+  activeTabRef.current = activeTab;
+
+  /* ---- Tab switch with staggered animation ---- */
+  const handleTabChange = useCallback((newTab) => {
+    if (newTab === activeTabRef.current || isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
+
+    const container = menuGridRef.current;
+    if (!container) {
+      setActiveTab(newTab);
+      isAnimatingRef.current = false;
+      return;
+    }
+
+    const currentItems = container.querySelectorAll('.menu-item, .menu-subcategory-title, .menu-tray-info');
+
+    /* Animate out */
+    const tl = gsap.timeline({
+      onComplete() {
+        setActiveTab(newTab);
+        isAnimatingRef.current = false;
+      },
+    });
+
+    if (currentItems.length > 0) {
+      tl.to(currentItems, {
+        opacity: 0,
+        y: 12,
+        duration: 0.3,
+        stagger: 0.02,
+        ease: 'power2.in',
+      });
+    } else {
+      tl.to({}, { duration: 0.05 });
+    }
+  }, []);
 
   useEffect(() => {
-    const handler = (e) => setActiveTab(e.detail);
+    const handler = (e) => handleTabChange(e.detail);
     window.addEventListener('select-menu-tab', handler);
     return () => window.removeEventListener('select-menu-tab', handler);
-  }, []);
+  }, [handleTabChange]);
+
+  /* ---- Animate in new items after tab state updates ---- */
+  useLayoutEffect(() => {
+    const container = menuGridRef.current;
+    if (!container) return;
+
+    const ctx = gsap.context(() => {
+      const newItems = container.querySelectorAll('.menu-item, .menu-subcategory-title, .menu-tray-info');
+
+      gsap.fromTo(
+        newItems,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.03,
+          ease: 'power3.out',
+          onComplete() {
+            animatePrices(container);
+          },
+        },
+      );
+
+      /* ---- Subcategory gold line draw-in ---- */
+      const subTitles = container.querySelectorAll('.menu-subcategory-title');
+      subTitles.forEach((title) => {
+        gsap.fromTo(
+          title,
+          { '--line-scale': 0 },
+          { '--line-scale': 1, duration: 0.6, delay: 0.3, ease: 'power2.out' },
+        );
+      });
+    }, container);
+
+    gsapCtxRef.current = ctx;
+    return () => ctx.revert();
+  }, [activeTab, animatePrices]);
 
   const { subcategories } = menuData[activeTab];
 
   return (
     <section id="menu" className="menu-section">
       <div className="menu-container">
-        <div className="menu-header">
+        <div className="menu-header reveal">
           <span className="eyebrow">The Menu</span>
           <h2>Explore Our <em>Flavors</em></h2>
         </div>
 
-        <div className="menu-tabs">
+        <div className="menu-tabs reveal" ref={tabsRef}>
+          <div className="menu-tab-indicator" ref={indicatorRef} />
           {categories.map((cat) => (
             <button
               key={cat}
               className={`menu-tab ${activeTab === cat ? 'active' : ''}`}
-              onClick={() => setActiveTab(cat)}
+              onClick={() => handleTabChange(cat)}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {activeTab === 'Party Trays' && (
-          <div className="menu-tray-info">
-            <p><strong>Small Tray</strong> — serves 10–15 guests</p>
-            <p><strong>Large Tray</strong> — serves 25–30 guests</p>
-            <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
-          </div>
-        )}
+        <div ref={menuGridRef}>
+          {activeTab === 'Party Trays' && (
+            <div className="menu-tray-info">
+              <p><strong>Small Tray</strong> — serves 10-15 guests</p>
+              <p><strong>Large Tray</strong> — serves 25-30 guests</p>
+              <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
+            </div>
+          )}
 
-        {subcategories.map((sub) => (
-          <div key={sub.title || 'main'} className="menu-subcategory">
-            {sub.title && <h3 className="menu-subcategory-title">{sub.title}</h3>}
-            <div className="menu-grid">
-              {sub.items.map((item) => (
-                <div className="menu-item" key={item.name}>
-                  <div className="menu-item-header">
-                    <h3 className="menu-item-name">
-                      {item.name}
-                      {item.tags && item.tags.length > 0 && (
-                        <span className="menu-item-tags">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className={`tag tag-${tag.toLowerCase()}`}
-                              title={tagLabels[tag]}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </span>
+          {subcategories.map((sub) => (
+            <div key={sub.title || 'main'} className="menu-subcategory">
+              {sub.title && <h3 className="menu-subcategory-title">{sub.title}</h3>}
+              <div className="menu-grid">
+                {sub.items.map((item) => (
+                  <div className="menu-item" key={item.name}>
+                    <div className="menu-item-header">
+                      <h3 className="menu-item-name">
+                        {item.name}
+                        {item.tags && item.tags.length > 0 && (
+                          <span className="menu-item-tags">
+                            {item.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className={`tag tag-${tag.toLowerCase()}`}
+                                title={tagLabels[tag]}
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </span>
+                        )}
+                      </h3>
+                      {item.price !== null && (
+                        <span className="menu-item-price">${item.price}</span>
                       )}
-                    </h3>
-                    {item.price !== null && (
-                      <span className="menu-item-price">${item.price}</span>
+                    </div>
+                    {item.description && (
+                      <p className="menu-item-description">{item.description}</p>
                     )}
                   </div>
-                  {item.description && (
-                    <p className="menu-item-description">{item.description}</p>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="menu-legend">
           <span className="legend-item"><span className="tag tag-v">V</span> Vegetarian</span>

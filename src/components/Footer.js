@@ -1,8 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Footer.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const footerRef = useRef(null);
+  const colsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* Footer columns stagger reveal */
+      const validCols = colsRef.current.filter(Boolean);
+      if (validCols.length > 0) {
+        gsap.fromTo(
+          validCols,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -13,11 +46,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer" ref={footerRef}>
       <div className="footer-main">
         <div className="footer-grid">
           {/* Column 1: Brand */}
-          <div className="footer-col footer-brand">
+          <div className="footer-col footer-brand" ref={(el) => { colsRef.current[0] = el; }}>
             <h2 className="footer-logo">SAFFRON</h2>
             <p className="footer-tagline">
               Authentic Indian cuisine crafted with passion, tradition, and the finest spices from around the world.
@@ -36,7 +69,7 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="footer-col">
+          <div className="footer-col" ref={(el) => { colsRef.current[1] = el; }}>
             <h3 className="footer-heading">Quick Links</h3>
             <ul className="footer-links">
               <li><a href="#home">Home</a></li>
@@ -49,7 +82,7 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Contact */}
-          <div className="footer-col">
+          <div className="footer-col" ref={(el) => { colsRef.current[2] = el; }}>
             <h3 className="footer-heading">Contact</h3>
             <address className="footer-contact">
               <p>3015 Calloway Dr, Unit D2 & D3</p>
@@ -64,7 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Column 4: Newsletter */}
-          <div className="footer-col">
+          <div className="footer-col" ref={(el) => { colsRef.current[3] = el; }}>
             <h3 className="footer-heading">Newsletter</h3>
             <p className="footer-newsletter-text">
               Subscribe for exclusive offers, new menu announcements, and event invitations.

@@ -9,19 +9,37 @@
 
 .events__bg {
   position: absolute;
-  inset: 0;
+  inset: -30% 0; /* extra height for parallax travel */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   z-index: 0;
+  will-change: transform;
 }
 
 .events__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(14, 6, 0, 0.75);
+  /* Base cool overlay that warms via --overlay-warmth (0 to 1) driven by GSAP */
+  --overlay-warmth: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 6, 0, 0.8) 0%,
+    rgba(
+      calc(14 + 30 * var(--overlay-warmth)),
+      calc(6 + 10 * var(--overlay-warmth)),
+      0,
+      0.7
+    ) 50%,
+    rgba(
+      calc(14 + 50 * var(--overlay-warmth)),
+      calc(6 + 18 * var(--overlay-warmth)),
+      0,
+      0.8
+    ) 100%
+  );
   z-index: 1;
+  transition: background 0.1s linear;
 }
 
 .events__content {
@@ -39,6 +57,11 @@
   line-height: 1.8;
   color: var(--text-light);
   margin: 0 0 2.5rem;
+}
+
+/* Word reveal: inline-block needed for individual transforms */
+.events__word {
+  display: inline-block;
 }
 
 /* Shared section title pattern */
@@ -73,7 +96,8 @@
   }
 
   .events__bg {
-    background-attachment: scroll;
+    /* Keep extra height for parallax on mobile */
+    inset: -20% 0;
   }
 
   .events__content {

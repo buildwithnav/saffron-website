@@ -59,10 +59,22 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding-bottom: 2px;
+  position: relative;
 }
 
 .menu-tabs::-webkit-scrollbar {
   display: none;
+}
+
+.menu-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--saffron);
+  border-radius: 1px;
+  pointer-events: none;
+  will-change: transform, width;
 }
 
 .menu-tab {
@@ -77,8 +89,10 @@
   padding: 10px 20px;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s;
   border-radius: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .menu-tab:hover {
@@ -87,7 +101,7 @@
 
 .menu-tab.active {
   color: var(--saffron);
-  border-bottom-color: var(--saffron);
+  border-bottom-color: transparent;
 }
 
 /* ---- Subcategory ---- */
@@ -103,9 +117,22 @@
   color: var(--saffron);
   margin: 0 0 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(244, 168, 41, 0.25);
+  border-bottom: none;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+}
+
+.menu-subcategory-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(244, 168, 41, 0.25);
+  transform: scaleX(var(--line-scale, 1));
+  transform-origin: left;
 }
 
 /* ---- Grid ---- */
@@ -119,8 +146,23 @@
 /* ---- Menu Item ---- */
 
 .menu-item {
-  padding: 24px 0;
+  padding: 24px 16px;
   border-bottom: 1px solid rgba(138, 117, 96, 0.2);
+  border-radius: 2px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item:hover {
+  background: rgba(244, 168, 41, 0.05);
+  transform: translateX(4px);
+}
+
+.menu-item:hover .menu-item-name {
+  color: var(--saffron);
+}
+
+.menu-item:hover .menu-item-price {
+  transform: scale(1.1);
 }
 
 .menu-item-header {
@@ -141,6 +183,7 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  transition: color 0.3s ease;
 }
 
 .menu-item-tags {
@@ -155,6 +198,8 @@
   font-weight: 500;
   color: var(--saffron);
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
 
 .menu-item-description {
