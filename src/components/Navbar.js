@@ -41,31 +41,6 @@ export default function Navbar() {
         delay: 0.2,
       });
 
-      // Hide topbar on scroll past 200px
-      ScrollTrigger.create({
-        start: 200,
-        onUpdate: (self) => {
-          if (!topbarRef.current) return;
-          if (self.direction === 1 && self.scroll() > 200) {
-            gsap.to(topbarRef.current, {
-              y: -topbarRef.current.offsetHeight,
-              opacity: 0,
-              duration: 0.4,
-              ease: 'power2.inOut',
-              overwrite: true,
-            });
-          } else if (self.direction === -1 && self.scroll() <= 200) {
-            gsap.to(topbarRef.current, {
-              y: 0,
-              opacity: 1,
-              duration: 0.4,
-              ease: 'power2.inOut',
-              overwrite: true,
-            });
-          }
-        },
-      });
-
       // Active section highlighting via ScrollTrigger
       SECTION_IDS.forEach((id) => {
         const el = document.getElementById(id);
