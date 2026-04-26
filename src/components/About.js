@@ -7,17 +7,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
   {
-    icon: '\uD83C\uDF3F',
+    image: `${process.env.PUBLIC_URL}/hero-food.jpg`,
+    alt: 'Fresh butter chicken with naan',
     title: 'Fresh Ingredients',
     text: 'We source the finest spices and produce daily, ensuring every dish bursts with vibrant, authentic flavor.',
   },
   {
-    icon: '\uD83D\uDCDC',
+    image: `${process.env.PUBLIC_URL}/pillar-desserts.jpg`,
+    alt: 'Traditional Indian desserts',
     title: 'Time-Honored Recipes',
     text: 'Four decades of mastery distilled into every dish — recipes perfected over a lifetime and rooted in tradition.',
   },
   {
-    icon: '\uD83E\uDEF6',
+    image: `${process.env.PUBLIC_URL}/hero-dining.jpg`,
+    alt: 'Warm dining room at Saffron',
     title: 'Warm Hospitality',
     text: 'Forty years of welcoming guests like family — Inder and Sukhwinder set the tone for attentive, heartfelt service.',
   },
@@ -159,7 +162,7 @@ const About = () => {
               className={`pillar reveal d${index + 1}`}
               ref={(el) => { pillarsRef.current[index] = el; }}
             >
-              <span className="pillar__icon">{pillar.icon}</span>
+              <img className="pillar__img" src={pillar.image} alt={pillar.alt} />
               <h3 className="pillar__title">{pillar.title}</h3>
               <p className="pillar__text">{pillar.text}</p>
             </div>

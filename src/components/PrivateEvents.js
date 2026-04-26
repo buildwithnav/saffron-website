@@ -73,7 +73,7 @@ const PrivateEvents = () => {
         ref={bgRef}
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80)',
+            `url(${process.env.PUBLIC_URL}/events-venue.jpg)`,
         }}
       />
       <div className="events__overlay" ref={overlayRef} />

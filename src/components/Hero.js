@@ -7,16 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80',
-    alt: 'Elegant restaurant interior with warm lighting',
+    url: `${process.env.PUBLIC_URL}/hero-food.jpg`,
+    alt: 'Butter chicken with naan and rice at Saffron',
   },
   {
-    url: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80',
-    alt: 'Traditional Indian curry dishes on a table',
+    url: `${process.env.PUBLIC_URL}/hero-dining.jpg`,
+    alt: 'Elegant dining room with banquette seating at Saffron',
   },
   {
-    url: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=1920&q=80',
-    alt: 'Spices and ingredients used in Indian cooking',
+    url: `${process.env.PUBLIC_URL}/hero-bar.jpg`,
+    alt: 'Moody bar counter with craft spirits at Saffron',
   },
 ];
 
@@ -188,7 +188,7 @@ const Hero = () => {
           ))}
         </h1>
         <p className="hero__tagline" ref={taglineRef}>
-          Indian Food &amp; Bar — Bakersfield, CA
+          Indian Food &amp; Bar<br />Bakersfield, CA
         </p>
         <div className="hero__cta" ref={ctaRef}>
           <a href="#inquiries" className="btn btn-primary">Reserve a Table</a>
