@@ -269,7 +269,7 @@ const menuData = {
         title: 'Signature Cocktails',
         items: [
           { name: 'Spiced Masala Mojito', price: 12, description: '', tags: [] },
-          { name: 'Ginger Tumeric Mule', price: 12, description: '', tags: [] },
+          { name: 'Ginger Turmeric Mule', price: 12, description: '', tags: [] },
           { name: 'Tamarind Whiskey Sour', price: 13, description: '', tags: [] },
           { name: 'Mango Chili Margarita', price: 13, description: '', tags: [] },
         ],
@@ -289,7 +289,7 @@ const menuData = {
         title: 'Mocktails',
         items: [
           { name: 'Pineapple Coconut Refresher', price: 8, description: '', tags: [] },
-          { name: "Rose' Lychee Sparkler", price: 8, description: '', tags: [] },
+          { name: "Rosé Lychee Sparkler", price: 8, description: '', tags: [] },
           { name: 'Orange Cardamom Spritz', price: 8, description: '', tags: [] },
           { name: 'Spicy Mango Cooler', price: 8, description: '', tags: [] },
           { name: 'Fresh Lime Soda', price: 7, description: '', tags: [] },
@@ -451,7 +451,6 @@ const categories = Object.keys(menuData);
 
 const tagLabels = {
   V: 'Vegetarian',
-  GF: 'Gluten-Free',
   S: 'Spicy',
 };
 
@@ -630,7 +629,7 @@ function Menu() {
                 {sub.items.map((item) => (
                   <div className="menu-item" key={item.name}>
                     <div className="menu-item-header">
-                      <h3 className="menu-item-name">
+                      <span className="menu-item-name">
                         {item.name}
                         {item.tags && item.tags.length > 0 && (
                           <span className="menu-item-tags">
@@ -645,7 +644,7 @@ function Menu() {
                             ))}
                           </span>
                         )}
-                      </h3>
+                      </span>
                       {item.price !== null && (
                         <span className="menu-item-price">${item.price}</span>
                       )}
@@ -662,7 +661,6 @@ function Menu() {
 
         <div className="menu-legend">
           <span className="legend-item"><span className="tag tag-v">V</span> Vegetarian</span>
-          <span className="legend-item"><span className="tag tag-gf">GF</span> Gluten-Free</span>
           <span className="legend-item"><span className="tag tag-s">S</span> Spicy</span>
         </div>
       </div>

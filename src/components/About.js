@@ -118,12 +118,14 @@ const About = () => {
               src={`${process.env.PUBLIC_URL}/about-food.jpg`}
               alt="Saffron dishes being served at the table"
               className="about__img"
+              loading="lazy"
             />
             <img
               ref={(el) => { imagesRef.current[1] = el; }}
               src={`${process.env.PUBLIC_URL}/about-spices.jpg`}
               alt="Colorful Indian spices at the market"
               className="about__img"
+              loading="lazy"
             />
           </div>
 
@@ -162,7 +164,7 @@ const About = () => {
               className={`pillar reveal d${index + 1}`}
               ref={(el) => { pillarsRef.current[index] = el; }}
             >
-              <img className="pillar__img" src={pillar.image} alt={pillar.alt} />
+              <img className="pillar__img" src={pillar.image} alt={pillar.alt} loading="lazy" />
               <h3 className="pillar__title">{pillar.title}</h3>
               <p className="pillar__text">{pillar.text}</p>
             </div>

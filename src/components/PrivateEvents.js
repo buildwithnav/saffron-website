@@ -71,6 +71,8 @@ const PrivateEvents = () => {
       <div
         className="events__bg"
         ref={bgRef}
+        role="img"
+        aria-label="Private event venue at Saffron"
         style={{
           backgroundImage:
             `url(${process.env.PUBLIC_URL}/events-venue.jpg)`,

@@ -125,7 +125,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="navbar__main">
+      <nav className="navbar__main" aria-label="Main navigation">
         <div className="container navbar__main-inner">
           <a href="#home" className="navbar__logo" onClick={(e) => handleNavClick(e, { href: '#home' })}>
             SAFFRON

@@ -8,10 +8,30 @@
     <meta name="theme-color" content="#0E0600" />
     <meta
       name="description"
-      content="Saffron Indian Food & Bar — Authentic Indian cuisine in Bakersfield, CA. Experience rich flavors of India with traditional recipes, handcrafted cocktails, and warm hospitality."
+      content="Saffron Indian Food & Bar in Bakersfield, CA — authentic Indian cuisine, tandoori grill, craft cocktails & bar. Dine-in, DoorDash delivery, or book private events. Open daily."
     />
+    <link rel="canonical" href="https://saffronbakersfield.com/" />
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="Bakersfield, California" />
+    <meta name="geo.position" content="35.3878;-119.1292" />
+    <meta name="ICBM" content="35.3878, -119.1292" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Saffron Indian Food & Bar" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Saffron Indian Food & Bar | Bakersfield, CA" />
+    <meta property="og:description" content="Authentic Indian cuisine, tandoori grill, craft cocktails & bar in Bakersfield. Dine-in, DoorDash delivery, or book private events." />
+    <meta property="og:image" content="https://saffronbakersfield.com/hero-food.jpg" />
+    <meta property="og:url" content="https://saffronbakersfield.com/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saffron Indian Food & Bar | Bakersfield, CA" />
+    <meta name="twitter:description" content="Authentic Indian cuisine, tandoori grill, craft cocktails & bar in Bakersfield. Dine-in, DoorDash delivery, or book private events." />
+    <meta name="twitter:image" content="https://saffronbakersfield.com/hero-food.jpg" />
 
     <!-- Google Fonts: Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,10 +43,167 @@
       rel="stylesheet"
     />
 
-    <title>Saffron — Authentic Indian Restaurant</title>
+    <!-- JSON-LD Restaurant Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://saffronbakersfield.com/#restaurant",
+      "name": "Saffron Indian Food & Bar",
+      "description": "Upscale casual Indian restaurant and bar in Bakersfield, CA. Authentic Indian cuisine with handcrafted cocktails, tandoori grill, private event dining, and DoorDash delivery. Family-owned with over 40 years of culinary expertise.",
+      "image": [
+        "https://saffronbakersfield.com/hero-food.jpg",
+        "https://saffronbakersfield.com/hero-dining.jpg",
+        "https://saffronbakersfield.com/hero-bar.jpg"
+      ],
+      "url": "https://saffronbakersfield.com",
+      "telephone": "+16616794271",
+      "email": "saffronindian60@gmail.com",
+      "priceRange": "$$",
+      "servesCuisine": "Indian",
+      "acceptsReservations": "True",
+      "menu": "https://saffronbakersfield.com/#menu",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3015 Calloway Dr, Unit D2 & D3",
+        "addressLocality": "Bakersfield",
+        "addressRegion": "CA",
+        "postalCode": "93312",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.3878,
+        "longitude": -119.1292
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"],
+          "opens": "11:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "11:00",
+          "closes": "22:00"
+        }
+      ],
+      "hasMenu": {
+        "@type": "Menu",
+        "url": "https://saffronbakersfield.com/#menu"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "20"
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Dine-in", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Takeout", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Delivery", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Bar on site", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private dining", "value": true }
+      ],
+      "potentialAction": [
+        {
+          "@type": "OrderAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.doordash.com/store/saffron-indian-food-&-bar-bakersfield-41931145/",
+            "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+          }
+        },
+        {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://saffronbakersfield.com/#inquiries"
+          }
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/saffronindiacuisine/",
+        "https://www.yelp.com/biz/saffron-indian-food-and-bar-bakersfield-2",
+        "https://www.ubereats.com/store/saffron-india-food-&-bar-calloway/QF8Me38-TMCQMaRqyoYKxw"
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema for Voice Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Saffron Indian Food & Bar open on Sundays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saffron is open on Sundays from 11:00 AM to 9:00 PM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saffron offer delivery in Bakersfield?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saffron offers delivery through DoorDash and Uber Eats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saffron Indian Food & Bar take reservations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can submit a reservation or private event inquiry at saffronbakersfield.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Saffron Indian restaurant located in Bakersfield?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Saffron is located at 3015 Calloway Dr, Unit D2 & D3, Bakersfield, CA 93312."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saffron have vegetarian options?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saffron has an extensive vegetarian menu including paneer dishes, dal, vegetable entrées, and Indo-Chinese options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saffron have a bar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Saffron has a full bar with signature cocktails, classic cocktails, mocktails, wine, beer, and spirits."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Saffron Indian Food & Bar | Bakersfield, CA</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <h1>Saffron Indian Food & Bar</h1>
+      <p>Authentic Indian restaurant and bar in Bakersfield, CA. Tandoori grill, craft cocktails, private event dining.</p>
+      <p>Address: 3015 Calloway Dr, Unit D2 &amp; D3, Bakersfield, CA 93312</p>
+      <p>Phone: (661) 679-4271 | Email: saffronindian60@gmail.com</p>
+      <p>Hours: Mon–Thu &amp; Sun 11AM–9PM, Fri–Sat 11AM–10PM</p>
+      <p>Order delivery on DoorDash or Uber Eats. Book private events at saffronbakersfield.com.</p>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

@@ -105,14 +105,17 @@ function App() {
 
   return (
     <div className="App" ref={appRef}>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className="scroll-progress" ref={progressRef} />
       <Navbar />
-      <Hero />
-      <About />
-      <Menu />
-      <PrivateEvents />
-      <Reservations />
-      <Location />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Menu />
+        <PrivateEvents />
+        <Reservations />
+        <Location />
+      </main>
       <Footer />
     </div>
   );

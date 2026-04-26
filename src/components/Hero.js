@@ -180,7 +180,7 @@ const Hero = () => {
       </div>
 
       <div className="hero__content" ref={contentRef}>
-        <h1 className="hero__title" ref={titleRef}>
+        <h1 className="hero__title" aria-label="Saffron Indian Food & Bar" ref={titleRef}>
           {TITLE_TEXT.split('').map((char, i) => (
             <span key={i} className="hero__letter">
               {char}
