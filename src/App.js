@@ -117,6 +117,14 @@ function App() {
         <Location />
       </main>
       <Footer />
+      <a
+        href="https://www.doordash.com/store/saffron-indian-food-&-bar-bakersfield-41931145/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="sticky-order"
+      >
+        Order Now
+      </a>
     </div>
   );
 }

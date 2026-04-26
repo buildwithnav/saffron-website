@@ -4,6 +4,43 @@
   color: var(--cream);
 }
 
+/* Sticky Order Now Button */
+.sticky-order {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--saffron);
+  color: var(--deep);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 2px;
+  z-index: 9998;
+  box-shadow: 0 4px 20px rgba(244, 168, 41, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.sticky-order:hover {
+  background: var(--saffron-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(244, 168, 41, 0.4);
+}
+
+@media (max-width: 768px) {
+  .sticky-order {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
 .scroll-progress {
   position: fixed;
   top: 0;

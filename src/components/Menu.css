@@ -86,7 +86,8 @@
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  min-height: 44px;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.3s;

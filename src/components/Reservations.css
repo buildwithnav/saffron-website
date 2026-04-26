@@ -208,4 +208,9 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .reservations__submit {
+    width: 100%;
+    max-width: none;
+  }
 }
