@@ -149,6 +149,7 @@
 .navbar__cta {
   font-size: 0.75rem;
   padding: 0.6rem 1.4rem;
+  color: var(--deep);
 }
 
 /* ---- Hamburger ---- */
@@ -237,6 +238,11 @@
   margin-top: 0.75rem;
   text-align: center;
   border-bottom: none !important;
+  color: var(--deep) !important;
+}
+
+.navbar__mobile-cta:hover {
+  color: var(--deep) !important;
 }
 
 /* ============================================

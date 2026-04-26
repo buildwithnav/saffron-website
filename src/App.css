@@ -9,25 +9,93 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  background: var(--saffron);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
   color: var(--deep);
   font-family: var(--font-body);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 1.75rem;
+  padding: 0.9rem 1.85rem;
   border-radius: 2px;
   z-index: 9998;
-  box-shadow: 0 4px 20px rgba(244, 168, 41, 0.3);
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 4px 20px rgba(244, 168, 41, 0.35),
+    0 0 0 0 rgba(244, 168, 41, 0);
+  transition: background 0.3s ease, transform 0.25s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow 0.3s ease;
+  overflow: hidden;
+  animation:
+    stickyGlow 2.5s ease-in-out infinite,
+    stickyFloat 3s ease-in-out infinite;
 }
 
+/* Animated glow pulse */
+@keyframes stickyGlow {
+  0%, 100% {
+    box-shadow:
+      0 4px 20px rgba(244, 168, 41, 0.35),
+      0 0 0 0 rgba(244, 168, 41, 0);
+  }
+  50% {
+    box-shadow:
+      0 4px 28px rgba(244, 168, 41, 0.5),
+      0 0 20px 4px rgba(244, 168, 41, 0.15);
+  }
+}
+
+/* Subtle floating bob */
+@keyframes stickyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Shimmer sweep across button surface */
+.sticky-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 80%
+  );
+  animation: stickyShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes stickyShimmer {
+  0%, 70%, 100% { left: -100%; }
+  40% { left: 120%; }
+}
+
+/* Icon before text */
+.sticky-order__icon {
+  display: inline-flex;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Hover: scale up, glow intensifies */
 .sticky-order:hover {
-  background: var(--saffron-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(244, 168, 41, 0.4);
+  background: linear-gradient(135deg, var(--saffron-light) 0%, var(--saffron) 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 8px 32px rgba(244, 168, 41, 0.55),
+    0 0 24px 6px rgba(244, 168, 41, 0.2);
+  animation: none;
+}
+
+.sticky-order:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 @media (max-width: 768px) {
@@ -35,7 +103,7 @@
     bottom: 1rem;
     right: 1rem;
     left: 1rem;
-    text-align: center;
+    justify-content: center;
     padding: 1rem;
     font-size: 0.9rem;
   }
