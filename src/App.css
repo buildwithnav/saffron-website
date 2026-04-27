@@ -157,15 +157,15 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
-  color: var(--deep);
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: #fff;
   align-items: center;
   justify-content: center;
   z-index: 9998;
   text-decoration: none;
   box-shadow:
-    0 4px 20px rgba(244, 168, 41, 0.45),
-    0 0 0 0 rgba(244, 168, 41, 0);
+    0 4px 20px rgba(46, 204, 113, 0.4),
+    0 0 0 0 rgba(46, 204, 113, 0);
   animation: callGlow 2s ease-in-out infinite;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
@@ -173,8 +173,8 @@
 .sticky-call:hover {
   transform: translateY(-50%) scale(1.1);
   box-shadow:
-    0 6px 28px rgba(244, 168, 41, 0.6),
-    0 0 24px 6px rgba(244, 168, 41, 0.25);
+    0 6px 28px rgba(46, 204, 113, 0.55),
+    0 0 24px 6px rgba(46, 204, 113, 0.2);
   animation: none;
 }
 
@@ -203,13 +203,13 @@
 @keyframes callGlow {
   0%, 100% {
     box-shadow:
-      0 4px 20px rgba(244, 168, 41, 0.45),
-      0 0 0 0 rgba(244, 168, 41, 0);
+      0 4px 20px rgba(46, 204, 113, 0.4),
+      0 0 0 0 rgba(46, 204, 113, 0);
   }
   50% {
     box-shadow:
-      0 6px 28px rgba(244, 168, 41, 0.6),
-      0 0 20px 6px rgba(244, 168, 41, 0.2);
+      0 6px 28px rgba(46, 204, 113, 0.55),
+      0 0 16px 4px rgba(46, 204, 113, 0.15);
   }
 }
 
@@ -218,7 +218,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(244, 168, 41, 0.5);
+  border: 2px solid rgba(46, 204, 113, 0.6);
   animation: callRing 2.5s ease-out infinite;
   pointer-events: none;
 }
