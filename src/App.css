@@ -11,46 +11,40 @@
   right: 1.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--saffron) 0%, #e8941a 50%, var(--saffron) 100%);
+  background-size: 200% 200%;
   color: var(--deep);
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.9rem 1.85rem;
+  padding: 1.1rem 2.2rem;
   border-radius: 2px;
   z-index: 9998;
   box-shadow:
-    0 4px 20px rgba(244, 168, 41, 0.35),
-    0 0 0 0 rgba(244, 168, 41, 0);
-  transition: background 0.3s ease, transform 0.25s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow 0.3s ease;
-  overflow: hidden;
+    0 6px 24px rgba(244, 168, 41, 0.45),
+    0 0 0 0 rgba(244, 168, 41, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  overflow: visible;
   animation:
-    stickyGlow 2.5s ease-in-out infinite,
-    stickyFloat 3s ease-in-out infinite;
+    stickyGlow 2s ease-in-out infinite,
+    stickyFloat 3s ease-in-out infinite,
+    stickyBgShift 4s ease-in-out infinite;
 }
 
-/* Animated glow pulse */
-@keyframes stickyGlow {
-  0%, 100% {
-    box-shadow:
-      0 4px 20px rgba(244, 168, 41, 0.35),
-      0 0 0 0 rgba(244, 168, 41, 0);
-  }
-  50% {
-    box-shadow:
-      0 4px 28px rgba(244, 168, 41, 0.5),
-      0 0 20px 4px rgba(244, 168, 41, 0.15);
-  }
-}
-
-/* Subtle floating bob */
-@keyframes stickyFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+/* Radiating ring pulse — the "tap me" beacon */
+.sticky-order::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--saffron);
+  border-radius: 4px;
+  opacity: 0;
+  animation: stickyRing 2s ease-out infinite;
+  pointer-events: none;
 }
 
 /* Shimmer sweep across button surface */
@@ -59,43 +53,87 @@
   position: absolute;
   top: 0;
   left: -100%;
-  width: 60%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.25) 50%,
-    transparent 80%
+    transparent 15%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 85%
   );
-  animation: stickyShimmer 3s ease-in-out infinite;
+  animation: stickyShimmer 2.5s ease-in-out infinite;
   pointer-events: none;
 }
 
+/* Animated glow pulse — bigger, more dramatic */
+@keyframes stickyGlow {
+  0%, 100% {
+    box-shadow:
+      0 6px 24px rgba(244, 168, 41, 0.45),
+      0 0 0 0 rgba(244, 168, 41, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 8px 36px rgba(244, 168, 41, 0.65),
+      0 0 30px 8px rgba(244, 168, 41, 0.2);
+  }
+}
+
+/* Floating bob */
+@keyframes stickyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Background gradient shift */
+@keyframes stickyBgShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Ring pulse radiates outward */
+@keyframes stickyRing {
+  0% {
+    inset: -4px;
+    opacity: 0.6;
+  }
+  100% {
+    inset: -16px;
+    opacity: 0;
+  }
+}
+
+/* Shimmer sweep */
 @keyframes stickyShimmer {
-  0%, 70%, 100% { left: -100%; }
-  40% { left: 120%; }
+  0%, 65%, 100% { left: -100%; }
+  35% { left: 120%; }
 }
 
 /* Icon before text */
 .sticky-order__icon {
   display: inline-flex;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1;
   flex-shrink: 0;
 }
 
-/* Hover: scale up, glow intensifies */
+/* Hover: scale up, glow explodes, animations pause for responsiveness */
 .sticky-order:hover {
   background: linear-gradient(135deg, var(--saffron-light) 0%, var(--saffron) 100%);
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-4px) scale(1.08);
   box-shadow:
-    0 8px 32px rgba(244, 168, 41, 0.55),
-    0 0 24px 6px rgba(244, 168, 41, 0.2);
+    0 10px 40px rgba(244, 168, 41, 0.65),
+    0 0 40px 10px rgba(244, 168, 41, 0.25);
   animation: none;
 }
 
+.sticky-order:hover::after {
+  animation: none;
+  opacity: 0;
+}
+
 .sticky-order:active {
-  transform: translateY(-1px) scale(1.02);
+  transform: translateY(-1px) scale(1.03);
 }
 
 @media (max-width: 768px) {
@@ -104,8 +142,8 @@
     right: 1rem;
     left: 1rem;
     justify-content: center;
-    padding: 1rem;
-    font-size: 0.9rem;
+    padding: 1.1rem;
+    font-size: 1rem;
   }
 }
 
