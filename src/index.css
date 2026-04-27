@@ -126,6 +126,13 @@ h3 em {
 .btn-primary:hover {
   background-color: var(--saffron-dark);
   border-color: var(--saffron-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(244, 168, 41, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn-ghost {
@@ -137,6 +144,13 @@ h3 em {
 .btn-ghost:hover {
   background-color: var(--saffron);
   color: var(--deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(244, 168, 41, 0.15);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* ---- Utility ---- */
@@ -175,12 +189,31 @@ h3 em {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-divider::before {
+  transform-origin: right;
+}
+.gold-divider::after {
+  transform-origin: left;
 }
 .gold-divider .dot {
   width: 5px;
   height: 5px;
   background: var(--saffron);
   border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+/* Animate dividers when their parent reveal is triggered */
+.gold-divider.is-visible::before,
+.gold-divider.is-visible::after {
+  transform: scaleX(1);
+}
+.gold-divider.is-visible .dot {
+  transform: scale(1);
 }
 
 /* ---- Skip Link ---- */

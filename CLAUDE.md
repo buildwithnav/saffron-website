@@ -62,6 +62,7 @@ saffron-restaurant/
 │       ├── Hero.js + Hero.css      ← Auto-rotating 3-slide hero with CTAs
 │       ├── About.js + About.css    ← Two-column layout, brand story, 3 pillar cards
 │       ├── Menu.js + Menu.css      ← 7-tab menu with subcategories (REAL menu data)
+│       ├── Reviews.js + .css       ← Google/Yelp ratings + testimonial cards
 │       ├── PrivateEvents.js + .css ← Full-bleed parallax events section
 │       ├── Reservations.js + .css  ← Booking form with success state
 │       ├── Location.js + .css      ← Google Map embed + hours
@@ -111,7 +112,7 @@ Source PDFs: ~/Downloads/Food-Menu-Saffron.pdf and ~/Downloads/Bar-Menu_Saffron.
 - [x] Online ordering — Order Online now links to DoorDash
 
 ### Still TODO
-- [ ] Reviews/testimonials section (5-star Google & Yelp ratings)
+- [x] Reviews/testimonials section (5-star Google & Yelp ratings) — added between Menu and Events
 - [ ] Better form UX — date picker, phone validation
 - [ ] SEO — JSON-LD Restaurant schema, Open Graph tags
 - [ ] Replace all Unsplash placeholder images with real photos (Nav will provide)

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Menu from './components/Menu';
+import Reviews from './components/Reviews';
 import PrivateEvents from './components/PrivateEvents';
 import Reservations from './components/Reservations';
 import Location from './components/Location';
@@ -110,6 +111,16 @@ function App() {
           ease: 'back.out(1.4)',
         });
       }
+
+      /* ---- gold divider draw-in ---- */
+      gsap.utils.toArray('.gold-divider').forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 90%',
+          onEnter: () => el.classList.add('is-visible'),
+          once: true,
+        });
+      });
     }, appRef);
 
     return () => ctx.revert();
@@ -124,6 +135,7 @@ function App() {
         <Hero />
         <About />
         <Menu />
+        <Reviews />
         <PrivateEvents />
         <Reservations />
         <Location />

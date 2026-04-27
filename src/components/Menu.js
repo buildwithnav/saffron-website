@@ -663,6 +663,23 @@ function Menu() {
           <span className="legend-item"><span className="tag tag-v">V</span> Vegetarian</span>
           <span className="legend-item"><span className="tag tag-s">S</span> Spicy</span>
         </div>
+
+        <div className="menu-cta reveal">
+          <p className="menu-cta__text">Ready to order?</p>
+          <div className="menu-cta__buttons">
+            <a
+              href="https://www.doordash.com/store/saffron-indian-food-&-bar-bakersfield-41931145/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Order Online
+            </a>
+            <a href="#inquiries" className="btn btn-ghost">
+              Reserve a Table
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

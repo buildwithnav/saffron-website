@@ -99,11 +99,13 @@
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
 }
 
 .footer-links a:hover {
   color: var(--saffron);
+  transform: translateX(4px);
 }
 
 /* Contact */
