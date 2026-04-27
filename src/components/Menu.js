@@ -676,7 +676,7 @@ function Menu() {
               Order Online
             </a>
             <a href="#inquiries" className="btn btn-ghost">
-              Reserve a Table
+              Plan Your Event
             </a>
           </div>
         </div>

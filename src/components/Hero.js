@@ -191,7 +191,7 @@ const Hero = () => {
           Indian Food &amp; Bar<br />Bakersfield, CA
         </p>
         <div className="hero__cta" ref={ctaRef}>
-          <a href="#inquiries" className="btn btn-primary">Reserve a Table</a>
+          <a href="#inquiries" className="btn btn-primary">Plan Your Event</a>
           <a href="#menu" className="btn btn-ghost">Explore Menu</a>
         </div>
       </div>
