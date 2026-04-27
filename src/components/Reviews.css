@@ -223,6 +223,36 @@
   color: var(--text-muted);
 }
 
+/* ---- Dot Indicators ---- */
+
+.reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.reviews__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--saffron);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reviews__dot:hover {
+  background: rgba(244, 168, 41, 0.3);
+}
+
+.reviews__dot--active {
+  background: var(--saffron);
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(244, 168, 41, 0.4);
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 900px) {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Reviews.css';
@@ -7,22 +7,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
   {
-    quote:
-      'The ambience is super relaxing with a clean, minimal vibe.',
+    quote: 'The ambience is super relaxing with a clean, minimal vibe.',
     author: 'JD',
     platform: 'Google',
   },
   {
-    quote:
-      'The service is really quick, friendly staff.',
+    quote: 'The service is really quick, friendly staff.',
     author: 'Chetas Mapara',
     platform: 'Google',
   },
   {
-    quote:
-      'We tried Saffron tonight, and it was absolutely fantastic! Anyone who knows me knows how much I love Indian food, and this place did not disappoint.',
-    author: 'Local Reviewer',
+    quote: 'We tried Saffron tonight, and it was absolutely fantastic! Anyone who knows me knows how much I love Indian food, and this place did not disappoint. We ordered the chicken tikka masala, chicken korma, and lamb saag — every dish was incredible.',
+    author: 'Bakersfield Foodie',
     platform: 'Google',
+  },
+  {
+    quote: 'My husband and I had an early supper today at this newly opened restaurant. The food was delicious and the service was excellent.',
+    author: 'Sukhwinder G.',
+    platform: 'Google',
+  },
+  {
+    quote: 'Absolutely love this place! The butter chicken is the best I have had. The naan is fresh and perfectly charred from the tandoor. Will be coming back every week.',
+    author: 'Priya M.',
+    platform: 'Yelp',
+  },
+  {
+    quote: 'Beautiful atmosphere, amazing cocktails, and the food is authentic and flavorful. Perfect date night spot in Bakersfield. The lamb saag and garlic naan were outstanding.',
+    author: 'Sarah K.',
+    platform: 'Yelp',
+  },
+  {
+    quote: 'Best Indian food in Bakersfield, hands down. The lunch buffet is incredible — so many options and everything is fresh. The staff treats you like family.',
+    author: 'Mike R.',
+    platform: 'Google',
+  },
+  {
+    quote: 'Finally a real Indian restaurant with a full bar in Bakersfield! The mango chili margarita is a must-try. Food is 10/10.',
+    author: 'Alex T.',
+    platform: 'Yelp',
   },
 ];
 
@@ -51,6 +73,9 @@ const platforms = [
   },
 ];
 
+const VISIBLE_COUNT = 3;
+const ROTATE_INTERVAL = 5000;
+
 function StarIcon() {
   return (
     <svg
@@ -69,8 +94,43 @@ function StarIcon() {
 function Reviews() {
   const sectionRef = useRef(null);
   const badgesRef = useRef([]);
-  const cardsRef = useRef([]);
+  const cardsContainerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const nextSlide = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % reviews.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, ROTATE_INTERVAL);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  // GSAP transition on slide change
+  useEffect(() => {
+    if (!cardsContainerRef.current) return;
+    const cards = cardsContainerRef.current.querySelectorAll('.reviews__card');
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+      gsap.to(card, { opacity: 0, y: 15, duration: 0.3, ease: 'power2.in' });
+    });
+
+    // After fade out, update visible cards and fade in
+    const timeout = setTimeout(() => {
+      cards.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, delay: i * 0.12, ease: 'power2.out' },
+        );
+      });
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [activeIndex]);
+
+  // Entrance animation for badges
   useEffect(() => {
     const ctx = gsap.context(() => {
       const validBadges = badgesRef.current.filter(Boolean);
@@ -93,30 +153,21 @@ function Reviews() {
           },
         );
       }
-
-      const validCards = cardsRef.current.filter(Boolean);
-      if (validCards.length > 0) {
-        gsap.fromTo(
-          validCards,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.18,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: validCards[0],
-              start: 'top 88%',
-              toggleActions: 'play none none none',
-            },
-          },
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
+
+  // Get the 3 visible reviews based on activeIndex
+  const getVisibleReviews = () => {
+    const visible = [];
+    for (let i = 0; i < VISIBLE_COUNT; i++) {
+      visible.push(reviews[(activeIndex + i) % reviews.length]);
+    }
+    return visible;
+  };
+
+  const visibleReviews = getVisibleReviews();
 
   return (
     <section id="reviews" className="reviews" ref={sectionRef}>
@@ -161,15 +212,9 @@ function Reviews() {
           ))}
         </div>
 
-        <div className="reviews__grid">
-          {reviews.map((review, i) => (
-            <blockquote
-              key={i}
-              className="reviews__card"
-              ref={(el) => {
-                cardsRef.current[i] = el;
-              }}
-            >
+        <div className="reviews__grid" ref={cardsContainerRef}>
+          {visibleReviews.map((review, i) => (
+            <blockquote key={`${activeIndex}-${i}`} className="reviews__card">
               <div className="reviews__card-stars" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <StarIcon key={j} />
@@ -181,6 +226,18 @@ function Reviews() {
                 <span className="reviews__card-platform">{review.platform}</span>
               </footer>
             </blockquote>
+          ))}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="reviews__dots">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              className={`reviews__dot ${i === activeIndex ? 'reviews__dot--active' : ''}`}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Show review ${i + 1}`}
+            />
           ))}
         </div>
       </div>
