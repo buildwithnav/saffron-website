@@ -191,7 +191,7 @@ const Hero = () => {
           Indian Food &amp; Bar<br />Bakersfield, CA
         </p>
         <div className="hero__cta" ref={ctaRef}>
-          <a href="#inquiries" className="btn btn-primary">Plan Your Event</a>
+          <a href="#menu" className="btn btn-primary" onClick={() => window.dispatchEvent(new CustomEvent('select-menu-tab', { detail: 'Party Trays' }))}>Order Catering</a>
           <a href="#menu" className="btn btn-ghost">Explore Menu</a>
         </div>
       </div>
