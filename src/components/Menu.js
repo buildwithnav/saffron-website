@@ -615,11 +615,27 @@ function Menu() {
 
         <div ref={menuGridRef}>
           {activeTab === 'Party Trays' && (
-            <div className="menu-tray-info">
-              <p><strong>Small Tray</strong> — serves 10-15 guests</p>
-              <p><strong>Large Tray</strong> — serves 25-30 guests</p>
-              <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
-            </div>
+            <>
+              <div className="menu-tray-gallery">
+                <div className="menu-tray-gallery__item">
+                  <img src={`${process.env.PUBLIC_URL}/catering-curries.jpg`} alt="Indian curry catering trays with rice and naan" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Curry & Rice Trays</span>
+                </div>
+                <div className="menu-tray-gallery__item">
+                  <img src={`${process.env.PUBLIC_URL}/catering-tandoori.jpg`} alt="Tandoori chicken and kebab catering platter" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Tandoori Platters</span>
+                </div>
+                <div className="menu-tray-gallery__item">
+                  <img src={`${process.env.PUBLIC_URL}/catering-desserts.jpg`} alt="Indian dessert catering tray with sweets" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Dessert Trays</span>
+                </div>
+              </div>
+              <div className="menu-tray-info">
+                <p><strong>Small Tray</strong> — serves 10-15 guests</p>
+                <p><strong>Large Tray</strong> — serves 25-30 guests</p>
+                <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
+              </div>
+            </>
           )}
 
           {subcategories.map((sub) => (
