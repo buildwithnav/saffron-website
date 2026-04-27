@@ -618,16 +618,16 @@ function Menu() {
             <>
               <div className="menu-tray-gallery">
                 <div className="menu-tray-gallery__item">
-                  <img src={`${process.env.PUBLIC_URL}/catering-curries.jpg`} alt="Indian curry catering trays with rice and naan" loading="lazy" />
-                  <span className="menu-tray-gallery__label">Curry & Rice Trays</span>
+                  <img src={`${process.env.PUBLIC_URL}/catering-curries.jpg`} alt="Catering spread with samosas, curries, rice, and chutneys" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Curries & Samosas</span>
                 </div>
                 <div className="menu-tray-gallery__item">
-                  <img src={`${process.env.PUBLIC_URL}/catering-tandoori.jpg`} alt="Tandoori chicken and kebab catering platter" loading="lazy" />
-                  <span className="menu-tray-gallery__label">Tandoori Platters</span>
+                  <img src={`${process.env.PUBLIC_URL}/catering-tandoori.jpg`} alt="Festive catering trays with tandoori, naan, and gulab jamun" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Tandoori & Naan Spread</span>
                 </div>
                 <div className="menu-tray-gallery__item">
-                  <img src={`${process.env.PUBLIC_URL}/catering-desserts.jpg`} alt="Indian dessert catering tray with sweets" loading="lazy" />
-                  <span className="menu-tray-gallery__label">Dessert Trays</span>
+                  <img src={`${process.env.PUBLIC_URL}/catering-desserts.jpg`} alt="Full catering spread with paneer curry, saag, biryani, and samosas" loading="lazy" />
+                  <span className="menu-tray-gallery__label">Full Party Spread</span>
                 </div>
               </div>
               <div className="menu-tray-info">
