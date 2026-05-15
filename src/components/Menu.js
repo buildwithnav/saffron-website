@@ -356,91 +356,139 @@ const menuData = {
       {
         title: 'Appetizers',
         items: [
-          { name: 'Vegetable Samosas', price: null, description: 'Small $45 / Large $80', tags: ['V'] },
-          { name: 'Onion Pakoras', price: null, description: 'Small $40 / Large $70', tags: ['V'] },
-          { name: 'Vegetable Pakoras', price: null, description: 'Small $40 / Large $70', tags: ['V'] },
-          { name: 'Paneer Pakoras', price: null, description: 'Small $75 / Large $135', tags: ['V'] },
-          { name: 'Chicken 65', price: null, description: 'Small $85 / Large $155', tags: ['S'] },
-          { name: 'Aloo Tikki Chaat', price: null, description: 'Small $55 / Large $95', tags: ['V'] },
-          { name: 'Mix Vegetarian Platter', price: null, description: 'Small $85 / Large $155', tags: ['V'] },
-          { name: 'Non-Vegetarian Platter', price: null, description: 'Small $95 / Large $175', tags: [] },
+          { name: 'Vegetable Samosa', price: null, description: 'Half $25 / Full $45 · 12 pcs / 25 pcs', tags: ['V'] },
+          { name: 'Paneer Pakora', price: null, description: 'Half $25 / Full $45 · 12 pcs / 25 pcs', tags: ['V'] },
+          { name: 'Chicken 65', price: null, description: 'Half $55 / Full $95', tags: ['S'] },
+          { name: 'Amritsari Fish Pakora', price: null, description: 'Half $65 / Full $120', tags: [] },
+        ],
+      },
+      {
+        title: 'Salads',
+        items: [
+          { name: 'Caesar Salad', price: null, description: 'Half $25 / Full $45', tags: ['V'] },
+          { name: 'Indian Garden Salad', price: null, description: 'Half $25 / Full $45', tags: ['V'] },
+        ],
+      },
+      {
+        title: 'Tandoori Grill',
+        items: [
+          { name: 'Chicken Tikka', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Chicken Tandoori', price: null, description: 'Half $65 / Full $120', tags: [] },
+          { name: 'Chicken Malai Tikka', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Paneer Tikka', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Lamb Seekh Kebab', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Lamb Tikka', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Fish Tikka', price: null, description: 'Half $95 / Full $180', tags: [] },
+        ],
+      },
+      {
+        title: 'Indo Chinese',
+        items: [
+          { name: 'Cigar Spring Rolls', price: null, description: 'Half $45 / Full $80', tags: ['V'] },
+          { name: 'Honey Chilli Potato', price: null, description: 'Half $65 / Full $120', tags: ['V', 'S'] },
+          { name: 'Chilli Paneer', price: null, description: 'Half $65 / Full $120', tags: ['V', 'S'] },
+          { name: 'Veg Manchurian', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Gobhi Manchurian', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
+          { name: 'Veg Hakka Noodles', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Hakka Noodles with Chicken', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Veg Fried Rice', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
+          { name: 'Fried Rice with Chicken', price: null, description: 'Half $60 / Full $110', tags: [] },
+          { name: 'Chilli Chicken', price: null, description: 'Half $65 / Full $120', tags: ['S'] },
         ],
       },
       {
         title: 'Vegetable Entrées',
         items: [
-          { name: 'Mixed Vegetable', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
-          { name: 'Aloo Gobhi', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
-          { name: 'Navratan Korma', price: null, description: 'Small $80 / Large $150', tags: ['V'] },
-          { name: 'Malai Kofta', price: null, description: 'Small $80 / Large $150', tags: ['V'] },
-          { name: 'Bhindi Masala', price: null, description: 'Small $80 / Large $150', tags: ['V'] },
-          { name: 'Baigan Bhartha', price: null, description: 'Small $80 / Large $150', tags: ['V'] },
+          { name: 'Mixed Vegetable', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Aloo Matar', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Mushroom Matar', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Navratan Korma', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Aloo Gobhi', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Malai Kofta', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Baigan Bhartha', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Bhindi Masala', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Aloo Saag', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Methi Malai Matar', price: null, description: 'Half $65 / Full $120', tags: ['V'] },
+          { name: 'Methi Malai Matar with Paneer', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
         ],
       },
       {
         title: 'Paneer Entrées',
         items: [
-          { name: 'Shahi Paneer', price: null, description: 'Small $85 / Large $160', tags: ['V'] },
-          { name: 'Paneer Tikka Masala', price: null, description: 'Small $85 / Large $160', tags: ['V'] },
-          { name: 'Paneer Makhni', price: null, description: 'Small $85 / Large $155', tags: ['V'] },
-          { name: 'Palak Paneer', price: null, description: 'Small $85 / Large $155', tags: ['V'] },
-          { name: 'Matar Paneer', price: null, description: 'Small $85 / Large $155', tags: ['V'] },
+          { name: 'Paneer Tikka Masala', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Shahi Paneer', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Paneer Makhani', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Karahi Paneer', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Paneer Bhurji', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Palak Paneer', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
+          { name: 'Matar Paneer', price: null, description: 'Half $75 / Full $140', tags: ['V'] },
         ],
       },
       {
         title: 'Dal',
         items: [
-          { name: 'Chana Masala', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
-          { name: 'Dal Makhani', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
-          { name: 'Dal Tadka', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
+          { name: 'Chana Masala', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
+          { name: 'Dal Makhani', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
+          { name: 'Dal Tadka', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
         ],
       },
       {
         title: 'Chicken Entrées',
         items: [
-          { name: 'Chicken Tikka Masala', price: null, description: 'Small $95 / Large $175', tags: [] },
-          { name: 'Butter Chicken', price: null, description: 'Small $95 / Large $175', tags: [] },
-          { name: 'Chicken Korma', price: null, description: 'Small $90 / Large $165', tags: [] },
-          { name: 'Punjabi Chicken Curry', price: null, description: 'Small $85 / Large $155', tags: ['S'] },
-          { name: 'Chicken Saag', price: null, description: 'Small $90 / Large $165', tags: [] },
+          { name: 'Butter Chicken', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Chicken Tikka Masala', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Chicken Korma', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Punjabi Chicken Curry', price: null, description: 'Half $75 / Full $140', tags: ['S'] },
+          { name: 'Karahi Chicken', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Mango Chicken', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Chicken Vindaloo', price: null, description: 'Half $75 / Full $140', tags: ['S'] },
+          { name: 'Chicken Saag', price: null, description: 'Half $75 / Full $140', tags: [] },
         ],
       },
       {
-        title: 'Lamb & Goat Entrées',
+        title: 'Lamb Entrées',
         items: [
-          { name: 'Lamb Tikka Masala', price: null, description: 'Small $110 / Large $200', tags: [] },
-          { name: 'Lamb Curry', price: null, description: 'Small $100 / Large $185', tags: [] },
-          { name: 'Lamb Rogan Josh', price: null, description: 'Small $100 / Large $185', tags: ['S'] },
-          { name: 'Goat Curry', price: null, description: 'Small $110 / Large $200', tags: [] },
+          { name: 'Lamb Rogan Josh', price: null, description: 'Half $95 / Full $180', tags: ['S'] },
+          { name: 'Lamb Bhuna', price: null, description: 'Half $95 / Full $180', tags: [] },
+          { name: 'Lamb Tikka Masala', price: null, description: 'Half $95 / Full $180', tags: [] },
+          { name: 'Lamb Korma', price: null, description: 'Half $95 / Full $180', tags: [] },
+          { name: 'Lamb Curry', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Karahi Lamb', price: null, description: 'Half $95 / Full $180', tags: [] },
+          { name: 'Lamb Vindaloo', price: null, description: 'Half $95 / Full $180', tags: ['S'] },
+          { name: 'Lamb Saag', price: null, description: 'Half $95 / Full $180', tags: [] },
+        ],
+      },
+      {
+        title: 'Goat Entrées',
+        items: [
+          { name: 'Goat Curry', price: null, description: 'Half $95 / Full $180', tags: [] },
+          { name: 'Goat Bhuna', price: null, description: 'Half $105 / Full $195', tags: [] },
+        ],
+      },
+      {
+        title: 'Seafood Entrées',
+        items: [
+          { name: 'Shrimp Tikka Masala', price: null, description: 'Half $105 / Full $195', tags: [] },
+          { name: 'Shrimp Coconut Curry', price: null, description: 'Half $105 / Full $195', tags: [] },
+          { name: 'Shrimp Curry', price: null, description: 'Half $105 / Full $195', tags: [] },
+          { name: 'Fish Curry', price: null, description: 'Half $105 / Full $195', tags: [] },
         ],
       },
       {
         title: 'Rice & Biryani',
         items: [
-          { name: 'Basmati Rice', price: null, description: 'Small $30 / Large $55', tags: ['V'] },
-          { name: 'Saffron Rice', price: null, description: 'Small $40 / Large $70', tags: ['V'] },
-          { name: 'Veg Biryani', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
-          { name: 'Chicken Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
-          { name: 'Lamb Biryani', price: null, description: 'Small $95 / Large $175', tags: [] },
-          { name: 'Goat Biryani', price: null, description: 'Small $100 / Large $185', tags: [] },
+          { name: 'Veg Biryani', price: null, description: 'Half $50 / Full $90', tags: ['V'] },
+          { name: 'Chicken Biryani', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Lamb Biryani', price: null, description: 'Half $75 / Full $140', tags: [] },
+          { name: 'Goat Biryani', price: null, description: 'Half $80 / Full $150', tags: [] },
+          { name: 'Shrimp Biryani', price: null, description: 'Half $95 / Full $180', tags: [] },
         ],
       },
       {
-        title: 'Breads (per piece, minimum 20)',
+        title: 'Breads (per piece)',
         items: [
-          { name: 'Plain Naan', price: 3, description: '', tags: ['V'] },
-          { name: 'Garlic Naan', price: 4, description: '', tags: ['V'] },
-          { name: 'Tandoori Roti', price: 3, description: '', tags: ['V'] },
-          { name: 'Lachha Paratha', price: 4, description: '', tags: ['V'] },
-          { name: 'Onion Kulcha', price: 4, description: '', tags: ['V'] },
-        ],
-      },
-      {
-        title: 'Desserts',
-        items: [
-          { name: 'Gulab Jamun', price: null, description: 'Small $55 / Large $100', tags: ['V'] },
-          { name: 'Rasmalai', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
-          { name: 'Kheer (Rice Pudding)', price: null, description: 'Small $55 / Large $100', tags: ['V'] },
+          { name: 'Naan', price: null, description: '10-20 pcs: $3 each · 20+ pcs: $2.50 each', tags: ['V'] },
+          { name: 'Garlic Naan', price: null, description: '10-20 pcs: $4 each · 20+ pcs: $3.50 each', tags: ['V'] },
         ],
       },
     ],
@@ -631,8 +679,8 @@ function Menu() {
                 </div>
               </div>
               <div className="menu-tray-info">
-                <p><strong>Small Tray</strong> — serves 10-15 guests</p>
-                <p><strong>Large Tray</strong> — serves 25-30 guests</p>
+                <p><strong>Half Tray</strong> — serves 10-15 guests</p>
+                <p><strong>Full Tray</strong> — serves 25-30 guests</p>
                 <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
               </div>
             </>
