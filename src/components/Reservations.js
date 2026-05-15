@@ -114,6 +114,10 @@ const Reservations = () => {
                     Select event type
                   </option>
                   <option value="Catering">Catering</option>
+                  <option value="Jagoo">Jagoo</option>
+                  <option value="Sangeet">Sangeet</option>
+                  <option value="Daytime Path">Daytime Path</option>
+                  <option value="Baby Shower">Baby Shower</option>
                   <option value="Birthday Party">Birthday Party</option>
                   <option value="Corporate Event">Corporate Event</option>
                   <option value="Wedding / Reception">Wedding / Reception</option>
