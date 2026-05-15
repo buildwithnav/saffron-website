@@ -397,7 +397,7 @@ const menuData = {
           { name: 'Chicken Tandoori', price: null, description: 'Small $75 / Large $140', tags: [] },
           { name: 'Chicken Malai Tikka', price: null, description: 'Small $90 / Large $160', tags: [] },
           { name: 'Paneer Tikka', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
-          { name: 'Lamb Seekh Kebab', price: null, description: 'Small $80 / Large $150', tags: [] },
+          { name: 'Lamb Seekh Kebab', price: null, description: 'Small $95 / Large $170', tags: [] },
           { name: 'Lamb Tikka', price: null, description: 'Small $80 / Large $150', tags: [] },
           { name: 'Fish Tikka', price: null, description: 'Small $95 / Large $180', tags: [] },
         ],
