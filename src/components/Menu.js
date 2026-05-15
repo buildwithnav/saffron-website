@@ -394,7 +394,7 @@ const menuData = {
         title: 'Tandoori Grill',
         items: [
           { name: 'Chicken Tikka', price: null, description: 'Small $85 / Large $150', tags: [] },
-          { name: 'Chicken Tandoori', price: null, description: 'Small $65 / Large $120', tags: [] },
+          { name: 'Chicken Tandoori', price: null, description: 'Small $75 / Large $140', tags: [] },
           { name: 'Chicken Malai Tikka', price: null, description: 'Small $90 / Large $160', tags: [] },
           { name: 'Paneer Tikka', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
           { name: 'Lamb Seekh Kebab', price: null, description: 'Small $80 / Large $150', tags: [] },
