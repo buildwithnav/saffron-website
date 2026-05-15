@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Menu from './components/Menu';
 import Reviews from './components/Reviews';
+import Catering from './components/Catering';
 import PrivateEvents from './components/PrivateEvents';
 import Reservations from './components/Reservations';
 import Location from './components/Location';
@@ -136,6 +137,7 @@ function App() {
         <About />
         <Menu />
         <Reviews />
+        <Catering />
         <PrivateEvents />
         <Reservations />
         <Location />

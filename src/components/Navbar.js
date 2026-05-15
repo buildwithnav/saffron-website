@@ -85,8 +85,28 @@ export default function Navbar() {
     return sectionId === activeSection;
   };
 
+  const handleCateringClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    window.dispatchEvent(new CustomEvent('select-menu-tab', { detail: 'Party Trays' }));
+    const menuSection = document.querySelector('#menu');
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header ref={navbarRef} className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      {/* Catering Announcement Bar */}
+      <div className="navbar__announcement">
+        <div className="container">
+          <a href="#menu" onClick={handleCateringClick}>
+            <span className="navbar__announcement-icon">🍽</span>
+            <span>Now offering <strong>Party Trays</strong> for any occasion — small & large trays available</span>
+            <span className="navbar__announcement-arrow">→</span>
+          </a>
+        </div>
+      </div>
       {/* Top Info Bar */}
       <div ref={topbarRef} className="navbar__topbar">
         <div className="container navbar__topbar-inner">

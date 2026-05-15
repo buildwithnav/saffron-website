@@ -11,6 +11,47 @@
   transition: background-color 0.3s ease;
 }
 
+/* ---- Catering Announcement Bar ---- */
+
+.navbar__announcement {
+  background: linear-gradient(90deg, var(--saffron-dark), var(--saffron), var(--saffron-dark));
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.navbar__announcement a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--deep);
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__announcement a:hover {
+  opacity: 0.85;
+}
+
+.navbar__announcement strong {
+  font-weight: 700;
+}
+
+.navbar__announcement-icon {
+  font-size: 1rem;
+}
+
+.navbar__announcement-arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.navbar__announcement a:hover .navbar__announcement-arrow {
+  transform: translateX(3px);
+}
+
 /* ---- Top Info Bar ---- */
 
 .navbar__topbar {
