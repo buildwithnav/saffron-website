@@ -126,6 +126,11 @@
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
+  color: var(--text-muted);
+}
+
+.form-group select.has-value {
+  color: var(--cream);
 }
 
 .form-group textarea {

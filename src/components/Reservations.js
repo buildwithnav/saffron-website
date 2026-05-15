@@ -109,7 +109,7 @@ const Reservations = () => {
 
               <div className="form-group form-group--select">
                 <label htmlFor="inq-type">Event Type</label>
-                <select id="inq-type" name="eventType" required defaultValue="">
+                <select id="inq-type" name="eventType" required defaultValue="" onChange={(e) => e.target.classList.toggle('has-value', e.target.value !== '')}>
                   <option value="" disabled>
                     Select event type
                   </option>
@@ -139,7 +139,7 @@ const Reservations = () => {
 
               <div className="form-group form-group--select">
                 <label htmlFor="inq-guests">Estimated Guests</label>
-                <select id="inq-guests" name="estimatedGuests" defaultValue="">
+                <select id="inq-guests" name="estimatedGuests" defaultValue="" onChange={(e) => e.target.classList.toggle('has-value', e.target.value !== '')}>
                   <option value="" disabled>
                     Number of guests
                   </option>
