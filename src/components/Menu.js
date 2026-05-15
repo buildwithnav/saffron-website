@@ -409,7 +409,7 @@ const menuData = {
           { name: 'Honey Chilli Potato', price: null, description: 'Small $65 / Large $120', tags: ['V', 'S'] },
           { name: 'Chilli Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V', 'S'] },
           { name: 'Veg Manchurian', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
-          { name: 'Gobhi Manchurian', price: null, description: 'Small $50 / Large $90', tags: ['V'] },
+          { name: 'Gobhi Manchurian', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
           { name: 'Veg Hakka Noodles', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
           { name: 'Hakka Noodles with Chicken', price: null, description: 'Small $75 / Large $140', tags: [] },
           { name: 'Veg Fried Rice', price: null, description: 'Small $50 / Large $90', tags: ['V'] },
