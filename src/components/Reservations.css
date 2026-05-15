@@ -30,23 +30,19 @@
   margin-top: 1.25rem;
 }
 
-/* Select groups keep static labels above */
+/* Select groups — no floating label, placeholder option handles it */
 .form-group--select {
   display: flex;
   flex-direction: column;
 }
 
 .form-group--select label {
-  position: static;
-  transform: none;
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--saffron);
-  margin-bottom: 0.4rem;
-  pointer-events: auto;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 /* Floating label: MUST come after the input in DOM for ~ selector */
