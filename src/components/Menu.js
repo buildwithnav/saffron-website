@@ -405,7 +405,7 @@ const menuData = {
       {
         title: 'Indo Chinese',
         items: [
-          { name: 'Cigar Spring Rolls', price: null, description: 'Small $45 / Large $80', tags: ['V'] },
+          { name: 'Cigar Spring Rolls', price: null, description: 'Small $45 / Large $80 · 25 pcs / 50 pcs', tags: ['V'] },
           { name: 'Honey Chilli Potato', price: null, description: 'Small $65 / Large $120', tags: ['V', 'S'] },
           { name: 'Chilli Paneer', price: null, description: 'Small $65 / Large $120', tags: ['V', 'S'] },
           { name: 'Veg Manchurian', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
