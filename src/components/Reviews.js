@@ -46,6 +46,46 @@ const reviews = [
     author: 'Alex T.',
     platform: 'Yelp',
   },
+  {
+    quote: 'We ordered catering trays for our son\'s birthday party and the food was a massive hit. The paneer tikka and chicken biryani trays were finished in minutes. Will definitely order again.',
+    author: 'Harpreet S.',
+    platform: 'Google',
+  },
+  {
+    quote: 'The goat curry here is the real deal — reminds me of my mom\'s cooking back home. Rich, slow-cooked, perfectly spiced. Nothing else in Bakersfield comes close.',
+    author: 'Ravi P.',
+    platform: 'Google',
+  },
+  {
+    quote: 'Took my team here for a work dinner and everyone was impressed. The tandoori platter was the star of the night. Great cocktails too — the tamarind whiskey sour is something else.',
+    author: 'Jennifer L.',
+    platform: 'Yelp',
+  },
+  {
+    quote: 'This place is a gem. We come every Friday night now. The malai kofta is creamy perfection, and the kids love the cheese naan. So glad we found Saffron.',
+    author: 'Amanda & David',
+    platform: 'Google',
+  },
+  {
+    quote: 'Ordered the chole bhature for the first time and I\'m hooked. The bhatura was so fluffy and the chole had that deep home-cooked flavor. Great portions for the price too.',
+    author: 'Simran K.',
+    platform: 'Yelp',
+  },
+  {
+    quote: 'Celebrated our anniversary here and the staff went above and beyond. They decorated our table and the lamb chops were cooked to perfection. Five stars all around.',
+    author: 'Carlos M.',
+    platform: 'Google',
+  },
+  {
+    quote: 'The masala dosa was crispy and the sambar was legit South Indian. So happy to find a place in Bakersfield that does both North and South Indian food well.',
+    author: 'Anitha R.',
+    platform: 'Yelp',
+  },
+  {
+    quote: 'We hosted our baby shower here and the party trays were incredible. The dal makhani and garlic naan combo is unbeatable. Everyone kept asking where the food was from.',
+    author: 'Neha T.',
+    platform: 'Google',
+  },
 ];
 
 const platforms = [
