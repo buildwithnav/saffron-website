@@ -380,7 +380,7 @@ const menuData = {
           { name: 'Vegetable Samosa', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
           { name: 'Paneer Pakora', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
           { name: 'Chicken 65', price: null, description: 'Small $85 / Large $150', tags: ['S'] },
-          { name: 'Amritsari Fish Pakora', price: null, description: 'Small $65 / Large $120', tags: [] },
+          { name: 'Amritsari Fish Pakora', price: null, description: 'Small $75 / Large $140', tags: [] },
         ],
       },
       {
