@@ -261,6 +261,27 @@ const menuData = {
           { name: 'Fresh Garden Salad', price: 6, description: 'Crisp seasonal vegetables tossed with chaat masala and fresh cilantro, served with lemon on the side', tags: ['V'] },
         ],
       },
+      {
+        title: 'Condiments',
+        items: [
+          { name: 'Plain Yogurt', price: 4, description: '', tags: ['V'] },
+          { name: 'Raita', price: 5, description: 'Cooling yogurt sauce with cucumber, potatoes, roasted cumin, and fresh cilantro', tags: ['V'] },
+          { name: 'Papad (2 Pieces)', price: 3, description: 'Crispy lentil wafer', tags: ['V'] },
+          { name: 'Mango Chutney', price: 3, description: '', tags: ['V'] },
+          { name: 'Tamarind Chutney', price: 3, description: '', tags: ['V'] },
+          { name: 'Mint Chutney', price: 3, description: '', tags: ['V'] },
+          { name: 'Mixed Pickle', price: 2, description: '', tags: ['V'] },
+        ],
+      },
+      {
+        title: 'Kids Menu',
+        items: [
+          { name: 'Chicken Tender (4 Pcs)', price: 8, description: '', tags: [] },
+          { name: "Mac 'N' Cheese", price: 8, description: '', tags: ['V'] },
+          { name: 'French Fries', price: 5, description: '', tags: ['V'] },
+          { name: 'Cheese Quesadilla', price: 8, description: '', tags: ['V'] },
+        ],
+      },
     ],
   },
   Bar: {
