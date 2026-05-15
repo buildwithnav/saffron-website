@@ -185,6 +185,33 @@
   background-color: var(--saffron);
 }
 
+/* ---- Highlighted Nav Link (Order Catering) ---- */
+
+.navbar__links a.navbar__link--highlight {
+  color: var(--saffron);
+  font-weight: 500;
+  border: 1px solid var(--saffron);
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease, text-shadow 0.3s ease;
+}
+
+.navbar__links a.navbar__link--highlight:hover {
+  background-color: var(--saffron);
+  color: var(--deep);
+  text-shadow: none;
+}
+
+.navbar__links a.navbar__link--highlight::after {
+  display: none;
+}
+
+.navbar__mobile a.navbar__link--highlight {
+  color: var(--saffron);
+  font-weight: 600;
+  border-bottom-color: var(--saffron) !important;
+}
+
 /* ---- CTA Button ---- */
 
 .navbar__cta {

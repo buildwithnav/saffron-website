@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Menu', href: '#menu' },
-  { label: 'Party Trays', href: '#menu', action: 'party-trays' },
+  { label: 'Order Catering', href: '#menu', action: 'party-trays', highlight: true },
   { label: 'Events', href: '#events' },
   { label: 'Inquiries', href: '#inquiries' },
   { label: 'Location', href: '#location' },
@@ -132,7 +132,7 @@ export default function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={isLinkActive(link) ? 'navbar__link--active' : ''}
+                  className={`${isLinkActive(link) ? 'navbar__link--active' : ''} ${link.highlight ? 'navbar__link--highlight' : ''}`}
                   onClick={(e) => handleNavClick(e, link)}
                 >
                   {link.label}
@@ -165,7 +165,7 @@ export default function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={isLinkActive(link) ? 'navbar__link--active' : ''}
+                  className={`${isLinkActive(link) ? 'navbar__link--active' : ''} ${link.highlight ? 'navbar__link--highlight' : ''}`}
                   onClick={(e) => handleNavClick(e, link)}
                 >
                   {link.label}
