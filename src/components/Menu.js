@@ -379,8 +379,8 @@ const menuData = {
         items: [
           { name: 'Vegetable Samosa', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
           { name: 'Paneer Pakora', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
-          { name: 'Chicken 65', price: null, description: 'Small $85 / Large $150', tags: ['S'] },
-          { name: 'Amritsari Fish Pakora', price: null, description: 'Small $75 / Large $140', tags: [] },
+          { name: 'Chicken 65', price: null, description: 'Small $60 / Large $110', tags: ['S'] },
+          { name: 'Amritsari Fish Pakora', price: null, description: 'Small $65 / Large $120', tags: [] },
         ],
       },
       {
@@ -393,10 +393,10 @@ const menuData = {
       {
         title: 'Tandoori Grill',
         items: [
-          { name: 'Chicken Tikka', price: null, description: 'Small $85 / Large $150', tags: [] },
-          { name: 'Chicken Tandoori', price: null, description: 'Small $75 / Large $140', tags: [] },
-          { name: 'Chicken Malai Tikka', price: null, description: 'Small $90 / Large $160', tags: [] },
-          { name: 'Paneer Tikka', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
+          { name: 'Chicken Tikka', price: null, description: 'Small $80 / Large $150', tags: [] },
+          { name: 'Chicken Tandoori', price: null, description: 'Small $65 / Large $120', tags: [] },
+          { name: 'Chicken Malai Tikka', price: null, description: 'Small $80 / Large $150', tags: [] },
+          { name: 'Paneer Tikka', price: null, description: 'Small $65 / Large $120', tags: ['V'] },
           { name: 'Lamb Seekh Kebab', price: null, description: 'Small $95 / Large $170', tags: [] },
           { name: 'Lamb Tikka', price: null, description: 'Small $95 / Large $170', tags: [] },
           { name: 'Fish Tikka', price: null, description: 'Small $95 / Large $180', tags: [] },
@@ -435,14 +435,14 @@ const menuData = {
       {
         title: 'Paneer Entrées',
         items: [
-          { name: 'Paneer Tikka Masala', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Shahi Paneer', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Paneer Makhani', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Karahi Paneer', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Paneer Bhurji', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Palak Paneer', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Matar Paneer', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
-          { name: 'Methi Malai Matar with Paneer', price: null, description: 'Small $85 / Large $150', tags: ['V'] },
+          { name: 'Paneer Tikka Masala', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Shahi Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Paneer Makhani', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Karahi Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Paneer Bhurji', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Palak Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Matar Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
+          { name: 'Methi Malai Matar with Paneer', price: null, description: 'Small $75 / Large $140', tags: ['V'] },
         ],
       },
       {
@@ -456,8 +456,8 @@ const menuData = {
       {
         title: 'Chicken Entrées',
         items: [
-          { name: 'Butter Chicken', price: null, description: 'Small $85 / Large $150', tags: [] },
-          { name: 'Chicken Tikka Masala', price: null, description: 'Small $85 / Large $150', tags: [] },
+          { name: 'Butter Chicken', price: null, description: 'Small $80 / Large $150', tags: [] },
+          { name: 'Chicken Tikka Masala', price: null, description: 'Small $80 / Large $150', tags: [] },
           { name: 'Chicken Korma', price: null, description: 'Small $75 / Large $140', tags: [] },
           { name: 'Punjabi Chicken Curry', price: null, description: 'Small $75 / Large $140', tags: ['S'] },
           { name: 'Karahi Chicken', price: null, description: 'Small $75 / Large $140', tags: [] },
@@ -500,8 +500,8 @@ const menuData = {
         items: [
           { name: 'Veg Biryani', price: null, description: 'Small $50 / Large $90', tags: ['V'] },
           { name: 'Chicken Biryani', price: null, description: 'Small $75 / Large $140', tags: [] },
-          { name: 'Lamb Biryani', price: null, description: 'Small $85 / Large $150', tags: [] },
-          { name: 'Goat Biryani', price: null, description: 'Small $85 / Large $150', tags: [] },
+          { name: 'Lamb Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
+          { name: 'Goat Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
           { name: 'Shrimp Biryani', price: null, description: 'Small $95 / Large $180', tags: [] },
         ],
       },
