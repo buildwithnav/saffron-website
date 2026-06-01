@@ -378,7 +378,7 @@ const menuData = {
         title: 'Appetizers',
         items: [
           { name: 'Vegetable Samosa', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
-          { name: 'Paneer Pakora', price: null, description: 'Small $25 / Large $45 · 12 pcs / 25 pcs', tags: ['V'] },
+          { name: 'Paneer Pakora', price: null, description: '10-20 pcs: $1.25 each · 20+ pcs: $1.00 each', tags: ['V'] },
           { name: 'Chicken 65', price: null, description: 'Small $60 / Large $110', tags: ['S'] },
           { name: 'Amritsari Fish Pakora', price: null, description: 'Small $65 / Large $120', tags: [] },
         ],
