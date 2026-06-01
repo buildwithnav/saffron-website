@@ -499,7 +499,7 @@ const menuData = {
         title: 'Rice & Biryani',
         items: [
           { name: 'Veg Biryani', price: null, description: 'Small $50 / Large $90', tags: ['V'] },
-          { name: 'Chicken Biryani', price: null, description: 'Small $75 / Large $140', tags: [] },
+          { name: 'Chicken Biryani (Special)', price: null, description: 'Small $75 / Large $140', tags: [] },
           { name: 'Lamb Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
           { name: 'Goat Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
           { name: 'Shrimp Biryani', price: null, description: 'Small $95 / Large $180', tags: [] },
