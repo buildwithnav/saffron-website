@@ -503,6 +503,9 @@ const menuData = {
           { name: 'Lamb Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
           { name: 'Goat Biryani', price: null, description: 'Small $85 / Large $160', tags: [] },
           { name: 'Shrimp Biryani', price: null, description: 'Small $95 / Large $180', tags: [] },
+          { name: 'Basmati Rice', price: null, description: 'Small $25 / Large $45', tags: ['V'] },
+          { name: 'Saffron Rice', price: null, description: 'Small $30 / Large $50', tags: ['V'] },
+          { name: 'Jeera Rice', price: null, description: 'Small $30 / Large $50', tags: ['V'] },
         ],
       },
       {
