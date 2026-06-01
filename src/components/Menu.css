@@ -346,6 +346,13 @@
   text-decoration: underline;
 }
 
+.menu-tray-chutney {
+  margin-top: 8px !important;
+  font-size: 0.85rem !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+}
+
 /* ---- Legend ---- */
 
 .menu-legend {

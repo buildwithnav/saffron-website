@@ -703,6 +703,7 @@ function Menu() {
                 <p><strong>Small Tray</strong> — serves 10-15 guests</p>
                 <p><strong>Large Tray</strong> — serves 25-30 guests</p>
                 <p className="menu-tray-note">For orders or questions, call us at <a href="tel:+16616794271">(661) 679-4271</a> or submit an <a href="#inquiries">inquiry</a>.</p>
+                <p className="menu-tray-chutney">Tamarind chutney & mint chutney served with every order.</p>
               </div>
             </>
           )}
